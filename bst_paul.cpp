@@ -22,12 +22,14 @@ private:
   void RemoveNodePrivate(int key, node* parent);
   void RemoveRootMatch();
   void RemoveMatch(node* parent, node* match, bool left);
+  void RemoveSubTree (node* Ptr); //node Ptr if root will del whole
 
 
 
 
 public:
    BST();
+   ~BST(); //when BST goes out of Scope, this deconstructor called dymacalyl, avoided memory leak
    node* CreateLeaf(int key);
    node* ReturnNode(int key);
    void AddLeaf(int key);
@@ -341,7 +343,27 @@ void BST::RemoveMatch(node* parent, node* match, bool left)
   }
 }
 
+BST::~BST()
+{
+  RemoveSubTree(root);
+}
 
+void BST::RemoveSubTree(node* Ptr)
+{
+  if (Ptr != NULL)
+  {
+     if (Ptr->left != NULL)
+     {
+      RemoveSubTree(Ptr->left);
+     }
+     if (Ptr->right != NULL)
+     {
+      RemoveSubTree(Ptr->right);
+     }
+     cout << "Deleting key -->" << Ptr->data << endl;
+     delete Ptr;
+  }
+}
 
 
 
