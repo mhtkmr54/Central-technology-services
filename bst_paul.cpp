@@ -20,7 +20,7 @@ private:
   node* ReturnNodePrivate(int key, node* Ptr);
   int FindSmallestPrivate(node* Ptr);
   void RemoveNodePrivate(int key, node* parent);
-  void RemoveRootMAtch();
+  void RemoveRootMatch();
   void RemoveMatch(node* parent, node* match, bool left);
 
 
@@ -220,14 +220,14 @@ void BST::RemoveNodePrivate(int key,node* parent)
    {
      RemoveRootMatch();
    }
-   else{
-    if (key <  parent->data && parent->left != NULL)
+   else {
+    if (key < parent->data && parent->left != NULL)
     {
        parent->left->data == key ?
-       RemoveMatch(parent, parent->left, true) : //true for right child
+       RemoveMatch(parent, parent->left, true) : //true for left child
        RemoveNodePrivate(key,parent->left);
     }
-    else if (key >  parent->data && parent->right != NULL)
+    else if (key > parent->data && parent->right != NULL)
     {
        parent->right->data == key ?
        RemoveMatch(parent, parent->right, false) :
@@ -295,7 +295,7 @@ void BST::RemoveMatch(node* parent, node* match, bool left)
 {
   if(root != NULL)
   {
-      node delPtr = root;
+      node* delPtr = root;
       int matchkey = match->data;
       int smallestinRightSubTree;
 
@@ -303,13 +303,35 @@ void BST::RemoveMatch(node* parent, node* match, bool left)
       if (match->left == NULL && match->right == NULL)
       {
            delPtr = match;
-           left == true ? parent->left = NULL : parent->right == NULL;
+           left == true ? parent->left == NULL : parent->right == NULL;
+           delete delPtr; //delete match
+           cout<< "key deleted "<< matchkey << endl;
+      }
+      //case 1-1 child
+      else if (match->left == NULL && match->right != NULL)
+      {
+           left == true ? parent->left == match->right : parent->right == match->right;
+           match->right = NULL;
+           delPtr = match;
+           delete delPtr;
+           cout<< "key deleted"<< matchkey <<endl;
+
+      }
+      else if (match->left != NULL && match->right == NULL)
+      {
+           left == true ? parent->left == match->right : parent->right == match->left;
+           match->left = NULL; //diconnect it from tree
+           delPtr = match;
            delete delPtr;
            cout<< "key deleted"<<endl;
       }
-      else if (match->left == NULL && match->right != NULL)
-      {
 
+      // Case 2-2 Children
+      else
+      {
+       smallestinRightSubTree = FindSmallestPrivate(match->right);
+       RemoveNodePrivate(smallestinRightSubTree, match); //case 0 or case 1-1 will stisfy cuz this is smallest inright subtree
+       match->data = smallestinRightSubTree;
       }
   }
 
@@ -392,16 +414,17 @@ int main(){
   cout<< myTree.FindSmallest();
   cout << "\n";
   cout<< "Key to del  or -1 to stop proc"<< endl;
-  cin >> input;
+  int input;
   while(input != -1)
   {
     cout<<"Del Node : ";
+    cin >> input;
     {
       if (input != -1)
       {
         cout << endl;
         myTree.RemoveNode(input);
-        myTree.PrintInOrder();
+        myTree.PrintInorder();
         cout << endl;
       }
     }
