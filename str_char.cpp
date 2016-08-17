@@ -31,7 +31,8 @@ char findlargerInRight(char* str, int low, int high)
         }
     if (countRight == 0)
     {
-     min = NULL;
+     min = str[low];
+     return str[low];
     }
     return min;
 }
@@ -49,15 +50,35 @@ int main() {
     }
     for (int k=0 ; k<datarr.size() ; k++ )
     {
+      cout << "datarr.size()  " << datarr.size() << endl;
       string s = datarr.at(k);
       cout << "the s  "<< s << " " << s.length()<< endl;
 
       char str[s.length()];
       strcpy(str, s.c_str());
-      int low = 0;
+      int low;
       int high = strlen(str);
-      char larger = findlargerInRight(str, low , high ) ;
-      cout << larger;
+      for (low = strlen(str)-2; low >= 0 ;low--)
+          {
+          char larger = findlargerInRight(str, low , high ) ;
+          cout << "larger-->  " << larger << "  str[low]------->" << str[low] << " S strng   " << s <<endl;
+          if (larger !=str[low])
+          {
+              int index = s.find(larger);
+              char z = str[index];
+              str[index] = str[low];
+              str[low] = z;
+              cout << str <<endl; //print char array
+              break;
+
+          }
+          else{
+              cout << s <<endl; //print  string
+          }
+
+      }
+
+
     }
 
     return 0;
