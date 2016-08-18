@@ -55,7 +55,7 @@ int main() {
       cout << "the s  "<< s << " " << s.length()<< endl;
 
       char str[s.length()];
-      strcpy(str, s.c_str());
+      strcpy(str, s.c_str()); //converting to cstring
       int low;
       int high = strlen(str);
       for (low = strlen(str)-2; low >= 0 ;low--)

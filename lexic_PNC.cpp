@@ -5,7 +5,7 @@
 #include <algorithm>
 using namespace std;
 
-
+//https://www.nayuki.io/page/next-lexicographical-permutation-algorithm
 int main() {
     int t;
     cin>>t;
