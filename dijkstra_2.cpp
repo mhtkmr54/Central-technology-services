@@ -23,14 +23,11 @@ vector<int> Dijkstra(vector<vector<int> > arr, int start, int end, vector<int> d
  int len  = arr[0].size();
  deque<pair<int,int> >mydeque;
  mydeque.push_back(make_pair(pathlen,start));
- int min_compare = 9999999;
- while(!mydeque.empty())
- {
+ while(!mydeque.empty()){
     int path = mydeque.front().first;
     int curr  = mydeque.front().second;
     mydeque.pop_front();
-    if (vis[curr] == 0)
-    {
+    if (vis[curr] == 0){
       distarr[curr] = path;
       vis[curr] = 1;
       if (curr == end){
@@ -44,26 +41,19 @@ vector<int> Dijkstra(vector<vector<int> > arr, int start, int end, vector<int> d
                    distarr = Dijkstra (arr,start,pos,distarr);
                  }
               }
-              cout << endl;
         return distarr;
       }
       for (int k = 0; k < len; k++)
       {
-        if (arr[curr][k] != -99 && vis[k] == 0)
-
-        {
-
+        if (arr[curr][k] != -99 && vis[k] == 0){
             int edgelen = arr[curr][k];
-
-
-              mydeque.push_back(make_pair(edgelen+path ,k));
-
+           mydeque.push_back(make_pair(edgelen+path ,k));
         }
       }
       sort(mydeque.begin(),mydeque.end());
     }
  }
-
+return distarr;
 }
 
 int main(){
@@ -99,10 +89,7 @@ int main(){
          }
         l++;
       }
-      cout << endl;
   }
-
-
   return 0;
 }
 
