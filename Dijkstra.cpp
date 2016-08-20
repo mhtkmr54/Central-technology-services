@@ -12,27 +12,48 @@
 using namespace std;
 
 int main(){
-  int testcase;
-  cin >> testcase;
-  map < int, vector<pair<int,int> > > mymapofvec;
-  for (int j=0 ; j < testcase; j++)
+  int nodes;
+  int edges;
+  cin >> nodes;
+  cin >> edges;
+  cout << "edges" << edges << endl;
+  cout << "nodes" << nodes << endl;
+  //vector < vector<pair<int,int> > > myvecofvec(n);
+  vector < vector <int> > arr;
+  arr.resize(nodes,vector<int>(nodes, -99));
+
+  cout << "b4" << endl;
+
+  for (int i =0; i < nodes ; i++)
+  {
+     for (int j =0; j < nodes; j++)
+     {
+        cout << arr[i][j] << " ";
+     }
+     cout << endl;
+  }
+  cout << endl;
+
+
+  for (int j = 0 ; j < edges; j++)
   {
     int f,s,dist;
     cin >> f >> s >> dist;
-    vector<pair<int,int> > temp;
-    temp.push_back(make_pair(dist,s));
-    mymapofvec[f].push_back(temp);
-    delete temp;
+    arr[f-1][s-1] = dist;
+    arr[s-1][f-1] = dist;
   }
 
-  for (auto elem : mymapofvec)
+  for (int i =0; i < nodes ; i++)
   {
-    cout << elem.first << " " endl;
-    for (auto el : elem.second)
-    {
-        cout << el.first << " " << el.second << " " << endl;
-    }
+     for (int j =0; j < nodes; j++)
+     {
+        cout << arr[i][j] << " ";
+     }
+     cout << endl;
   }
+  cout << endl;
+
+
 
   return 0;
 }
