@@ -8,8 +8,49 @@
 #include <queue>
 #include <deque>
 #include <iterator>
+#include <string>
 
 using namespace std;
+
+string Dijkstra (vector<vector<int> arr, int start, int end)
+{
+ string path;
+ int pathlen = 0;
+ map <int,int> vis;
+ int len  = arr[0].size()
+ deque<pair<int,int> >mydeque;
+ mydeque.push_back(make_pair(pathlen,start);
+ int pathlen =0;
+ int min_compare = 9999999;
+ while(!mydeque.empty())
+ {
+    for( auto elem : mydeque )
+    {
+      cout << "( "<<elem.first << " " << elem.second << " " << " )" << endl;
+    }
+    int path = mydeque.pop_front().first;
+    int curr  = mydeque.pop_front().second;
+    if (vis[curr] == 0)
+    {
+      vis.insert(pair(curr,pathlen));
+      for (int k = 0; k < len; k++)
+      {
+        if (arr[curr][k] != -99 )
+        {
+            edgelen = arr[curr][k];
+            if (vis[k] == 0){
+              mydeque.push_back(make_pair(edgelen+path ,k));
+            }
+        }
+      }
+      sort(mydeque.begin(),mydeque.end());
+    }
+
+
+
+ }
+
+}
 
 int main(){
   int nodes;
@@ -52,7 +93,7 @@ int main(){
      cout << endl;
   }
   cout << endl;
-
+  Dijkstra (arr,0,nodes-1);
 
 
   return 0;
