@@ -17,23 +17,29 @@ class Node
 };
 class Solution{
     public:
-          Node* removeDuplicates(Node* head)
+        Node* removeDuplicates(Node* head)
           {
             //Write your code here
             Node* current = head;
             while (current != nullptr)
                 {
                 if (current->next != nullptr){
-                 if (current->data == current->next->data)
+                 if (current->data == current->next->data && current->next->next != nullptr)
                    {
-                    current->next = current->next->next;
+                    Node* temp = current->next->next;
+                    free(current->next);
+                    current->next = temp;
+                   }
+                 if (current->data == current->next->data && current->next->next == nullptr)
+                   {
+                    free (current->next->next);
+                    current->next = NULL;
                    }
                  }
                     current = current->next;
                     }
                return head;
                }
-
 
           Node* insert(Node *head,int data)
           {
