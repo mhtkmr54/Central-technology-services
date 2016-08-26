@@ -13,7 +13,8 @@
 
 using namespace std;
 
-string Dijkstra(vector<vector<int> > arr, int start, int end){
+vector<int> Dijkstra(vector<vector<int> > arr, int start, int end, vector<int> distarr){
+ vector<int>::iterator it;
  string path;
  int pathlen = 0;
  map <int,int> vis;
@@ -25,11 +26,11 @@ string Dijkstra(vector<vector<int> > arr, int start, int end){
  int len  = arr[0].size();
  cout << len << " arr[0].size() ";
  deque<pair<int,int> >mydeque;
+
  mydeque.push_back(make_pair(pathlen,start));
  int min_compare = 9999999;
  while(!mydeque.empty())
  {
-
     int path = mydeque.front().first;
     int curr  = mydeque.front().second;
     cout << " node b4 popping " << mydeque.front().second << endl;
@@ -38,15 +39,28 @@ string Dijkstra(vector<vector<int> > arr, int start, int end){
     if (vis[curr] == 0)
     {
       cout << " node which popped eligible -------------------------------------------------  -----------"    << curr << endl;
+      distarr[curr] = path;
       vis[curr] = 1;
       cout << "MAP" << endl;
       for(auto elem : vis)
       {
-         std::cout << elem.first << " " << elem.second << " " << "\n";
+         cout << elem.first << " " << elem.second << " " << "\n";
       }
       if (curr == end){
         string ans  = to_string(path);
-        return ans;
+             cout << "dist arr --------------------------------------------------------DIST AARR" << endl;
+              for(auto elem : distarr)
+              {
+                 std::cout << elem << " ";
+                 if (elem == -1)
+                 {
+                   it=find(distarr.begin(),distarr.end(),-1);
+                   auto pos = it - distarr.begin();
+                   distarr = Dijkstra (arr,start,pos,distarr);
+                 }
+              }
+              cout << endl;
+        return distarr;
       }
       for (int k = 0; k < len; k++)
       {
@@ -69,7 +83,7 @@ string Dijkstra(vector<vector<int> > arr, int start, int end){
       }
     }
  }
-return "voil";
+
 }
 
 int main(){
@@ -113,8 +127,14 @@ int main(){
      cout << endl;
   }
   cout << endl;
-  string s = Dijkstra (arr,0,nodes-1);
-  cout << "ANS " << s ;
+  vector <int> distarr;
+  distarr.resize(nodes,-1);
+  distarr = Dijkstra (arr,0,nodes-1,distarr);
+  for(auto elem : distarr)
+      {
+         cout << elem << " ";
+      }
+      cout << endl;
 
   return 0;
 }
