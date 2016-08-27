@@ -21,33 +21,30 @@ class Solution{
    public:
      Node* root;
      void makeFamily(Node* head,int level){
-        if (head == NULL)
+        cout << "    ->lvl     ------------------------------" << level;
+        if (root == NULL)
          {
            root = head;
            return;
          }
-         if (level == 1)
+         if (level == 1 | head == NULL)
          {
            return;
          }
         if (head->data == 1){
              if (head->first == NULL){
-                 Node* Eng = new Node(1);
-                 head->first = Eng;
+                 head->first = new Node(1);
              }
              if (head->second == NULL){
-                 Node* Doc = new Node(2);
-                 head->second = Doc;
+                 head->second = new Node(2);
              }
          }
         if (head->data == 2){
              if (head->first == NULL){
-                 Node* Doc = new Node(2);
-                 head->second = Doc;
+                 head->first = new Node(2);
              }
              if (head->second == NULL){
-                 Node* Eng = new Node(1);
-                 head->first = Eng;
+                 head->second = new Node(1);
              }
          }
          makeFamily(head->first,level-1);
@@ -55,14 +52,17 @@ class Solution{
      }
 
      void PrintGivenLevel(Node* root, int level, vector<int> levelvec){
-            if (level == 1){
+            if (root ==NULL){
+              return;
+            }
+            if (level == 1 ){
+              cout << endl;
+              cout << "root data pushed  " << root->data << " for lrvl   " << level << endl;
               levelvec.push_back(root->data);
             }
-            else{
-              level--;
-              PrintGivenLevel(root->first,level,levelvec);
-              PrintGivenLevel(root->second,level,levelvec);
-            }
+
+              PrintGivenLevel(root->first,level-1,levelvec);
+              PrintGivenLevel(root->second,level-1,levelvec);
      }
 };
 
@@ -74,10 +74,11 @@ int main() {
   Node* root = new Node(1);
   FamilyTree.makeFamily(root,4);
   vector <int> levelvec;
-  FamilyTree.PrintGivenLevel(root,3,levelvec);
-  for(auto elem : levelvec)
+  FamilyTree.PrintGivenLevel(root,4,levelvec);
+  vector<int>::iterator it;
+  for(it = levelvec.begin(); it != levelvec.end(); ++it)
   {
-         cout << elem <<" " ;
+         cout << *it <<" koun  ss" ;
   }
   cout << endl;
   return 0;
