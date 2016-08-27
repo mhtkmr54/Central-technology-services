@@ -28,7 +28,6 @@ vector<int> Dijkstra(vector<vector<int> > arr, int start, int end, vector<int> d
  deque<pair<int,int> >mydeque;
 
  mydeque.push_back(make_pair(pathlen,start));
- int min_compare = 9999999;
  while(!mydeque.empty())
  {
     int path = mydeque.front().first;
@@ -124,14 +123,14 @@ int main(){
   int start;
   cin >> start;
   start = start - 1;
-/*  for (int i =0; i < nodes ; i++)
+  for (int i =0; i < nodes ; i++)
   {
      for (int j =0; j < nodes; j++)
      {
         cout << arr[i][j] << " ";
      }
      cout << endl;
-  }*/
+  }
   cout << endl;
   vector <int> distarr;
   distarr.resize(nodes,-1);
