@@ -2,8 +2,12 @@
 #include <algorithm>
 #include <vector>
 #include <deque>
+#include <iterator>
 
 using namespace std;
+
+vector <int> levelvec;
+vector<int>::iterator it;
 
 class Node{
 
@@ -21,7 +25,6 @@ class Solution{
    public:
      Node* root;
      void makeFamily(Node* head,int level){
-        cout << "    ->lvl     ------------------------------" << level;
         if (root == NULL)
          {
            root = head;
@@ -51,18 +54,15 @@ class Solution{
          makeFamily(head->second,level-1);
      }
 
-     void PrintGivenLevel(Node* root, int level, vector<int> levelvec){
+     void PrintGivenLevel(Node* root, int level){
             if (root ==NULL){
               return;
             }
             if (level == 1 ){
-              cout << endl;
-              cout << "root data pushed  " << root->data << " for lrvl   " << level << endl;
               levelvec.push_back(root->data);
             }
-
-              PrintGivenLevel(root->first,level-1,levelvec);
-              PrintGivenLevel(root->second,level-1,levelvec);
+              PrintGivenLevel(root->first,level-1);
+              PrintGivenLevel(root->second,level-1);
      }
 };
 
@@ -73,13 +73,22 @@ int main() {
   Solution FamilyTree;
   Node* root = new Node(1);
   FamilyTree.makeFamily(root,4);
-  vector <int> levelvec;
-  FamilyTree.PrintGivenLevel(root,4,levelvec);
-  vector<int>::iterator it;
-  for(it = levelvec.begin(); it != levelvec.end(); ++it)
+  int tests;
+  int lvl;
+  int pos;
+  cin >> tests;
+  for (int j = 0; j < tests; j++)
   {
-         cout << *it <<" koun  ss" ;
+    cin >> lvl >> pos;
+    FamilyTree.PrintGivenLevel(root,lvl);
+      if (levelvec[pos-1] == 1)
+      {
+        cout<<"Engineer" << endl;
+      }
+      if (levelvec[pos-1] ==2)
+      {
+        cout<<"Doctor" << endl;
+      }
   }
-  cout << endl;
   return 0;
 }
