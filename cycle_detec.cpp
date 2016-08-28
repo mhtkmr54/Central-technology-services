@@ -15,16 +15,19 @@ using namespace std;
 vector< vector<int> > graph;
 int nodes;
 map <int,int> visited;
-
 map <int,int> parent;
 
-void DFS_visit(int j){
+void DFS_visit(int j, int temp){
    for (int d =0; d < nodes; d++){
      if (graph[j][d] != -99)
      {
+        if (j==temp){
+          cout << "cycle detected" << endl;
+        }
         if (parent[d] == -99){
           parent[d] = j;
-          DFS_visit(d);
+          visited[d] = 1;
+          DFS_visit(d,temp);
         }
      }
     }
@@ -37,7 +40,8 @@ void DFS(){
      if (visited[j] == -99)
      {
       visited[j] == 1;
-      DFS_visit(j);
+      int temp = j;
+      DFS_visit(j,temp);
      }
 
   }
