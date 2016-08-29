@@ -9,14 +9,8 @@
 #include <iterator>
 using namespace std;
 
-/*2
-4 2
-1 2
-1 3
-1
-3 1
-2 3
-2*/
+
+
 string BFS_shortest(vector<vector<int> > arr, int start, int nodes)
 {
   //cout << "BFS" << endl;
