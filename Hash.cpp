@@ -29,8 +29,6 @@ class hash{ //lowe h
      void printTable();
 };
 
-
-
 hash::hash(){ // constructer
   for (int i = 0; i < tableSize; i++)
   {
