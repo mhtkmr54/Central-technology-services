@@ -18,17 +18,17 @@ deque <pair<int,int> >::iterator it;
 void bringthequeue(){
     for (int i = 0; i < querylists.size(); i++){
       
-      cout << i << ": " << querylists[i].first << " " << querylists[i].second << "  "<< endl;
+      //cout << i << ": " << querylists[i].first << " " << querylists[i].second << "  "<< endl;
       int sum = querylists[i].first + querylists[i].second;
       procquerylist.push_back(make_pair(sum ,i));
 	}
 
-	cout << "query prior";
+	//cout << "query prior";
 	sort(procquerylist.begin(),procquerylist.end());
 	for (it = procquerylist.begin() ; it !=procquerylist.end(); ++it){
-      
-      cout << it->first << ": " << it->second << endl;
+      cout << it->second +  1 << " ";
 	}
+	cout << endl;
 
 	return;
 }
