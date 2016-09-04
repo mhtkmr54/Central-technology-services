@@ -10,7 +10,7 @@
 #include <iterator>
 #include <string>
 
-
+//g++ -std=c++0x
 using namespace std;
 
 vector<int> Dijkstra(vector<vector<int> > arr, int start, int end, vector<int> distarr){
