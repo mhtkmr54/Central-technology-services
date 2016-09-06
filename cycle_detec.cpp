@@ -48,7 +48,7 @@ void DFS(){
   return;
 }
 
-
+/*<!--------------------------------------------------------graph[f-1][s-1]--SEG------------------>*/
 int main(){
   int tests;
   cin >> tests;
@@ -62,8 +62,8 @@ int main(){
     {
       int f,s;
       cin >> f >> s;
-      graph[f][s] = 1;
-      graph[s][f] = 1;
+      graph[f-1][s-1] = 1;
+      graph[s-1][f-1] = 1;
     }
     for (int j =0; j < nodes; j++){
     visited.insert(pair<int,int>(0,-99));

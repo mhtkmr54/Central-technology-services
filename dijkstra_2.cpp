@@ -49,7 +49,7 @@ int main(){
   cin >> tests;
   for (int a =0; a < tests; a++)
   {
-    int nodes;
+  int nodes;
   int edges;
   cin >> nodes;
   cin >> edges;

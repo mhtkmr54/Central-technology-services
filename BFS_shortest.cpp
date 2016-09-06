@@ -47,49 +47,27 @@ string BFS_shortest(vector<vector<int> > arr, int start, int nodes)
       }*/
 
  while(!frontier.empty()){
-/*      cout << "BFS FRONTIER" << endl;
-      for(auto elem : frontier)
-      {
-         std::cout << elem << endl;
-      }*/
       deque <int> next;
-      //cout << "---------------------------------------------------in While" << endl;
       for (int k = 0; k < frontier.size(); k++)
       {
       int u = frontier[k];
       for (int k = 0; k < nodes; k++) ///for adjacents of u
         {
-          //cout << "going 4 chk" << k << endl;
           if (arr[u][k] != -99 && level[k] ==  -99)
           {
-
               level[k] = i;
               parent.insert(pair<int,int>(k, u));
-              //cout << "node going into next  " << k << endl;
               next.push_back(k);
           }
         }
       }
-      //cout << "Next Elements which will become frontier " << endl;
-/*      for(auto elem : next)
-      {
-         cout << "next el "<< elem << " ";
-      }
-      cout << "parent when a new frontier is to be set" << endl;
-      for(auto elem : parent)
-      {
-         std::cout << elem.first << " " << elem.second << " " << "\n";
-      }*/
-
-      //cout << "level parent when a new frontier is to be set" << endl;
-/*      for(auto elem : level)
-      {
-         std::cout << elem.first << " " << elem.second << " " << "\n";
-      }
-      cout << endl;*/
       frontier = next;
       i++;
   }
+
+
+
+
   vector <int> reach;
   for (int z = 0; z < nodes; z++)
   {
