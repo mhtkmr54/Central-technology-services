@@ -24,6 +24,9 @@ int counter;
 
 
 void DFS_visit(int i, int j){
+	for (auto el : visited){
+		cout << el.first << " : " << el.second << endl;
+	}
 	deque< pair<int, int> > dirs;
 	dirs.push_back(pair<int,int>(i-1,j-1));
     dirs.push_back(pair<int,int>(i-1,j));
@@ -39,16 +42,16 @@ void DFS_visit(int i, int j){
      for (int d =0; d < dirs.size(); d++){
       int l = dirs[d].first;
       int m = dirs[d].second;
-	  if (l > 0 && m > 0 && m < columns && l < rows){
+      cout << "testing---------------------------------------------" << l << " " << m << endl;
+	  if (l >= 0 && m >= 0 && m < columns && l < rows){
 	    	string resc = to_string(l) + to_string(m);
-	    	if (arr[l][m] != 0){ 
-	    		if (parent[resc] == ""){
+	    	cout << "basic cond satisfy--------------------------------------------" << l << " " << m << endl;
+	    	if (arr[l][m] == 1 && visited[resc] != 1){ 
+	    		cout << "resc" <<resc << endl;
 	    		visited[resc] = 1;
 	    		parent[resc] = resp;
 	    		counter++;
 	    	    DFS_visit(l,m);
-
-	    		}
 	    		
 	    	}
 	    }
@@ -78,7 +81,7 @@ void findreg(){
 
      }
    }
-   
+ 
 
 	return;
 }
@@ -102,7 +105,8 @@ int main(){
         cin >> arr[i][j];
      }
   }
-
+  cout << endl;
+  cout << endl;
   for (int i =0; i < rows ; i++)
    {
     for (int j =0; j < columns; j++)
