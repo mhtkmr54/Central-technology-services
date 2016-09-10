@@ -20,9 +20,6 @@ map <string,string> parent;
 int ans_max = -999999;
 int counter;
 
-
-
-
 void DFS_visit(int i, int j){
 	for (auto el : visited){
 		cout << el.first << " : " << el.second << endl;
@@ -47,9 +44,10 @@ void DFS_visit(int i, int j){
 	    	string resc = to_string(l) + to_string(m);
 	    	cout << "basic cond satisfy--------------------------------------------" << l << " " << m << endl;
 	    	if (arr[l][m] == 1 && visited[resc] != 1){ 
-	    		cout << "resc" <<resc << endl;
+	    		cout << "################################################# INSIDE #############resc" <<resc << " ##  from ##  " << resp << endl;
 	    		visited[resc] = 1;
 	    		parent[resc] = resp;
+	    		cout << "-------------------------------------increasing by 1----------------------" << endl;
 	    		counter++;
 	    	    DFS_visit(l,m);
 	    		
@@ -69,7 +67,7 @@ void findreg(){
     for (int j =0; j < columns; j++)
      {
         string rest = to_string(i) + to_string(j);
-        if (visited[rest] == -99){
+        if (visited[rest] == -99 && arr[i][j] == 1){
         	visited[rest] = 1;
         	counter = 1;
         	DFS_visit(i,j);
