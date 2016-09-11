@@ -39,9 +39,13 @@ int DFS_visit(int i, int j){
     //dirs.push_back(pair<int,int>(i+1,j-1));
     dirs.push_back(pair<int,int>(i+1,j));
     //dirs.push_back(pair<int,int>(i+1,j+1));
-    string resp = to_string(i) + to_string(j);
+    string resp = to_string(i) + "-" +to_string(j);
     cout << endl;
     flag = 0;
+    if (i == 4 && j == 40){
+      cout << "//$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$s" << endl;
+      flag = 6;    
+    }
     cout << i << j << endl;
     if (arr[i][j] == '*'){
       flag = 1;
@@ -66,15 +70,19 @@ int DFS_visit(int i, int j){
            }
         int l = dirs[d].first;
         int m = dirs[d].second;
-        cout << "testing---------------------------------------------" << l << " " << m << endl;
+        //cout << "testing---------------------------------------------" << l << " " << m << endl;
         if (l >= 0 && m >= 0 && m < columns && l < rows && arr[l][m] != 'X'){
-          string resc = to_string(l) + to_string(m);
-          cout << "basic cond satisfy--------------------------------------------" << l << " " << m << endl;
+          string resc = to_string(l) + "-" + to_string(m);
+          if (flag == 6 ){
+            cout << "basic cond satisfy--------------------------------------------" << l << " " << m << endl;
+            cout << "testing---------------------------------------------" << l << " " << m << endl;
+          }
+          
           if (arr[l][m] != 'X'  && visited[resc] != 1){ 
-            cout << "################################################# INSIDE #############resc" <<resc << " ##  from ##  " << resp << endl;
+            cout << " INSIDE #############resc" <<resc << " ##  from ##  " << resp << endl;
             visited[resc] = 1;
             parent[resc] = resp;
-            cout << "-------------------------------------increasing by 1----------------------" << endl;
+            //cout << "-------------------------------------increasing by 1----------------------" << endl;
             counter++;
               DFS_visit(l,m);
           }
@@ -139,7 +147,7 @@ int main(){
    {
     for (int j =0; j < columns; j++)
      {
-      string res = to_string(i) + to_string(j);
+      string res = to_string(i) + "-" +to_string(j);
         visited.insert(pair<string,int>(res,-99));
         parent.insert(pair<string,string>(res,"0"));
         cout << arr[i][j] << " " ;
