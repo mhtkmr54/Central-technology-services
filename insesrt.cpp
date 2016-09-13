@@ -3,11 +3,12 @@
 #include <cmath>
 #include <deque>
 #include <algorithm>
+#include <iterator>
 
 using namespace std;
 
 deque<int> test;
-
+deque<int>::iterator it;
 
 void insertsrt(){
 	for (int i = 1; i < test.size(); i++){
@@ -53,12 +54,31 @@ void quicksrt(int low,int high){
 	return;
 }
 
+void selectsrt(){
+    for (int i = 0; i < test.size()-1; i++)
+    {
+     int min_indx = i;
+     for (int j = i+1; j < test.size(); j++)
+     {
+
+        if (test[j] < test[min_indx]){
+        	min_indx = j;
+        }
+       	swap(test[min_indx],test[i]);
+
+     }	  
+    }
+	return;
+}
+
+
 
 int main(){
 
 	test = {12, 11, 13, 5, 6};
 	//insertsrt();
-	quicksrt(0,4);
+	//quicksrt(0,4);
+	selectsrt();
 	cout << "ens" << endl;
 	for (auto el : test){
 		cout << el << " ";
