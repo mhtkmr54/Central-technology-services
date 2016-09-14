@@ -7,6 +7,8 @@
 
 using namespace std;
 
+//http://placement.freshersworld.com/oracle-placement-papers/aptitude-english/3313936
+
 deque<int> test;
 deque<int>::iterator it;
 
