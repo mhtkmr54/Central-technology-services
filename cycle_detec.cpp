@@ -17,12 +17,13 @@ int nodes;
 map <int,int> visited;
 map <int,int> parent;
 
+
 void DFS_visit(int j, int temp){
    for (int d =0; d < nodes; d++){
      if (graph[j][d] != -99)
      {
         if (j==temp){
-          cout << "cycle detected" << endl;
+          cout << "cycle detected" << endl; //if two time pinted then ob cycle coz first time it will ob prnt
         }
         if (parent[d] == -99){
           parent[d] = j;
@@ -73,15 +74,6 @@ int main(){
       }
     DFS();
 
-    for(auto elem : parent)
-      {
-         //std::cout << elem.first << " " << elem.second << " " << "\n";
-         if (elem.first == elem.second){
-          cout << "1" << endl;
-         }else{
-          cout << "0" << endl;
-         }
-      }
   }
 
   }
