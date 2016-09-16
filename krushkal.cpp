@@ -15,69 +15,55 @@ using namespace std;
 deque<pair<int,pair<int,int> > > mymap;
 deque<pair<int,pair<int,int> > >::iterator it;
 int nodes;
-int edges;
-
+int edgesno;
+deque<pair<int,int> >edges;
 map<string,int> check;
 deque <int> selected;
 vector< vector<int> > graph;
 map <int,int> visited;
-map <int,int> parent;
 int omega  = 0;
 //int flag;
 int to_add;
 int so;
 int dt;
 
+// A utility function to find the subset of an element i
+int find(map<int,int>& parent, int i)
+{
+    if (parent[i] == -1)
+        return i;
+    return find(parent, parent[i]);
+}
+ 
+// A utility function to do union of two subsets 
+void Union(map<int,int>& parent, int x, int y)
+{
+    int xset = find(parent, x);
+    int yset = find(parent, y);
+    parent[xset] = yset;
+}
 
-
-void DFS_visit(int j, int temp){
-   cout << "checking " << j <<  endl;   
-   cout << "-----------------------------checlk" << endl;
-   for (auto elem : check){
-    cout << elem.first << " : " << elem.second << endl;
+int find_union(){
+  map<int,int> parent;
+  for (int k =0; k < nodes; k++){
+      parent[k] = -1;
    }
-   cout << "end end end ------------------------" << endl;
-   for (int d =0; d < nodes; d++){
-     if (graph[j][d] != -99)
-     {
-       cout << "now that we know that the are connected  " << j << " and " << d << " " << endl;
-       if (visited[d] == -99){
-          cout << "reachi  to " << d << " whose parent is " << endl;
-          parent[d] = j;
-          cout << parent[d] << endl;
-          visited[d] = 1;
-          DFS_visit(d,temp);
-        }
-        else if (visited[d] == 1 && j != parent[d]){
-          cout << "MUST BE A CYCLE  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ " << endl;
-        }
+  for (auto el : edges){
+     int x  = find(parent, el.first);
+     int y  = find(parent, el.second);
+     if (x == y){
+      return 1;
      }
-    }
-    return;
-}
-
-// need pre decl of visited (0,-99)and parent(0,-99) 
-
-void DFS(){
-  for (int j =0; j < nodes; j++){
-     cout << "FOR J  " << j << endl;
-     if (visited[j] == -99)
-     { 
-      visited[j] = 1;
-      int temp = j;
-      DFS_visit(j,temp);
-      //flag = 0;
-     }
-
+     Union(parent , x, y);
   }
-  return;
-}
 
+  return 0; 
+}
 
 int main() {
   cin >> nodes;
-  cin >> edges;
-  for (int j = 0 ; j < edges; j++)
+  cin >> edgesno;
+  for (int j = 0 ; j < edgesno; j++)
   {
     int f,s,dist;
     cin >> f >> s >> dist;
@@ -90,55 +76,25 @@ int main() {
   
   // set for cycles detect-----------------------
   graph.resize(nodes,vector<int>(nodes, -99));
-  for (int j =0; j < nodes; j++){
-       visited[j] = -99;
-    }
-  for (int k =0; k < nodes; k++){
-      parent[k] = -99;
-   }
-   parent[0] = -1;
+
   //-------------------------------------------------
 
   while (selected.size() != nodes - 1){
-     omega = 0;
-      cout << "-------------MyMAp --While Start---" << endl;  
-      for (auto el : mymap){
-        cout << el.first << " : " << el.second.first << "  " << el.second.second << endl;
-      }
-      cout << "-------------- b4 Top off------------" << endl;
   	  to_add = mymap[0].first;
       so = mymap[0].second.first;
       dt = mymap[0].second.second;
+      edges.push_back(make_pair(so,dt));
       mymap.erase(mymap.begin());
-      graph[so][dt] = to_add;
-      graph[dt][so] = to_add;
-      cout << "##############################################Checking for edge " << so << " : "<< dt << " with wt " << to_add << endl;
-      DFS();
+      int omega = find_union();
       if (omega == 1){
-           for (int i =0; i < nodes ; i++)
-            {
-               for (int j =0; j < nodes; j++)
-               {
-                  cout << graph[i][j] << " ";
-               }
-               cout << endl;
-            }
-         graph[so][dt] = -99;
-         graph[dt][so] = -99;
-        cout << "cycle detected" << endl;
+           edges.pop_back();
+           cout << "cycle detected" << endl;
       }else{
          sum += to_add;
-         selected.push_back(1);
-      }
-  for (int j =0; j < nodes; j++){
-    visited[j] = -99;
-    }
-/*  for (int j =0; j < nodes; j++){
-      parent[j] = -99;
-   }*/
-  parent[0] = -1;
+         selected.push_back(0);
+      } 
   }
-  cout << "SUMMM" <<sum << endl;
+  cout << "SUMMM" << sum << endl;
 
 
     return 0;
