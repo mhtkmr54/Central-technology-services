@@ -20,7 +20,7 @@ using namespace std;
 
 
 
-bool bsearch(vector<int> myvector, int look)
+bool bsearch(vector<int>& myvector, int look)
     {
     int mid,l = 0;
     int h = myvector.size() - 1;
@@ -61,7 +61,7 @@ int pairs(vector < int > a,int k) {
 
 /* Tail starts here */
 int main() {
-    int res;
+/*    int res;
     
     int _a_size,_k;
     cin >> _a_size>>_k;
@@ -74,8 +74,10 @@ int main() {
     }
     
     res = pairs(_a,_k);
-    cout << res;
-    
+    cout << res;*/
+    vector<int> pablo = {9,4,6,5,7,99,-1,5,88,41,2};
+    sort(pablo);
+    cout << bsearch(pablo,6);
     return 0;
 }
 
