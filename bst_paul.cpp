@@ -279,7 +279,7 @@ void BST::RemoveRootMatch()
      else
      {
        smallestinRightSubTree = FindSmallestPrivate(root->right);
-       RemoveNodePrivate(smallestinRightSubTree, root);
+       RemoveNodePrivate(smallestinRightSubTree, root); // now smallest data in hand with invariant maintained
        root->data = smallestinRightSubTree;
        cout << "deleted  "<< rootkey << "new key "<< root->data << endl;
      }
@@ -313,11 +313,10 @@ void BST::RemoveMatch(node* parent, node* match, bool left)
       else if (match->left == NULL && match->right != NULL)
       {
            left == true ? parent->left == match->right : parent->right == match->right;
-           match->right = NULL;
+           match->right = NULL;  /////////////////////////////////////////////////////////////////////////REVVVVVVVV B4 cutting out match
            delPtr = match;
            delete delPtr;
            cout<< "key deleted"<< matchkey <<endl;
-
       }
       else if (match->left != NULL && match->right == NULL)
       {

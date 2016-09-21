@@ -42,10 +42,6 @@ int DFS_visit(int i, int j){
     string resp = to_string(i) + "-" +to_string(j);
     cout << endl;
     flag = 0;
-    if (i == 4 && j == 40){
-      cout << "//$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$s" << endl;
-      flag = 6;    
-    }
     cout << i << j << endl;
     if (arr[i][j] == '*'){
       flag = 1;

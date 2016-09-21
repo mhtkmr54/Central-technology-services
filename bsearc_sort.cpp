@@ -22,6 +22,7 @@ using namespace std;
 
 bool bsearch(vector<int>& myvector, int look)
     {
+    	cout << "bs" << endl;
     int mid,l = 0;
     int h = myvector.size() - 1;
     while (l <= h){
@@ -33,6 +34,7 @@ bool bsearch(vector<int>& myvector, int look)
             h = mid-1;
         }
         else{
+        	cout << "FOUND";
             return true; // NOT True
         }
         
@@ -76,8 +78,9 @@ int main() {
     res = pairs(_a,_k);
     cout << res;*/
     vector<int> pablo = {9,4,6,5,7,99,-1,5,88,41,2};
-    sort(pablo);
-    cout << bsearch(pablo,6);
+    sort(pablo.begin(),pablo.end());
+    bool K = bsearch(pablo,6);
+    cout << K;
     return 0;
 }
 
