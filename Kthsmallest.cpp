@@ -1,5 +1,6 @@
-#include<iostream>
-#include<climits>
+#include <iostream>
+#include <climits>
+
 using namespace std;
  
 int partition(int arr[], int l, int r);
@@ -47,7 +48,7 @@ int partition(int arr[], int l, int r)
         if (arr[j] <= x)
         {
             swap(&arr[i], &arr[j]);
-            i++;
+            i++; //chchot ahai to piche le ao
         }
     }
     swap(&arr[i], &arr[r]);
