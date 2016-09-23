@@ -1,26 +1,21 @@
-/ queue::push/pop
+
 #include <iostream>       // std::cin, std::cout
-#include <queue>          // std::queue
+#include <queue> 
+#include <cstring>          // std::queue
+#include <map>
+
+using namespace std;
 
 int main ()
 {
-  std::queue<int> myqueue;
-  int myint;
-
-  std::cout << "Please enter some integers (enter 0 to end):\n";
-
-  do {
-    std::cin >> myint;
-    myqueue.push (myint);
-  } while (myint);
-
-  std::cout << "myqueue contains: ";
-  while (!myqueue.empty())
-  {
-    std::cout << ' ' << myqueue.front();
-    myqueue.pop();
+  char arr[] = "aaaa";
+  map<char,int> mymap;
+  for (int i =0 ; i < strlen(arr); i++){
+    mymap[arr[i]] += 1;
   }
-  std::cout << '\n';
-
+  for (auto el : mymap){
+    cout << el.first << " : " << el.second << endl;
+  }
+ cout << endl;
   return 0;
 }
