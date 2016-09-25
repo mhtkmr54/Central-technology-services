@@ -22,6 +22,10 @@ deque<int> poss;
 	for(int i = 0; i < strlen(s); i++)
        s[i] = toupper(s[i]);
   return;
+
+
+  inserting string at index 6
+  str.insert(6,str2);
 }*/
 
 //reverse(s.begin(),s.end())
