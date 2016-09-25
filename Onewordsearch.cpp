@@ -14,6 +14,10 @@ int n = sizeof(dictionary)/sizeof(dictionary[0]);
 // A given function to check if a given string is present in
 // dictionary. The implementation is naive for simplicity. As
 // per the question dictionary is givem to us.
+/*for (int dir = 0; dir < 8; dir++)
+    {
+        // Initialize starting point for current direction
+        int k, rd = row + x[dir], cd = col + y[dir];*/
 bool isWord(string &str)
 {
     // Linearly search all words 

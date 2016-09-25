@@ -9,6 +9,8 @@
 #include <deque>
 #include <iterator>
 #include <string>
+
+
 using namespace std;
 
 class hash{ //lowe h
@@ -119,14 +121,6 @@ int hash::Hash(string key){
   index = hash % tableSize;
   return index;
 }
-
-
-
-
-
-
-
-
 
 int main(){
    hash hashObj;
