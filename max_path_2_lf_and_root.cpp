@@ -59,6 +59,35 @@ int maxPathSumUtil(struct Node *root, int &res)
                           ls + root->data;
 }
  
+
+bool hasPathSum(Node *node, int sum)
+{
+    if (node == NULL){
+        return 0;
+    }
+    else {
+        int ans = 0;
+        int subsum = sum - node->data;
+        if (node->left == NULL && node->right == NULL){
+            if (subsum == 0){
+                return 1;
+            }
+        }
+        if (node->left != NULL){
+            ans = ans || hasPathSum(node->left, subsum);
+            }
+        if (node->right != NULL){
+            ans = ans || hasPathSum(node->right, subsum);
+            }
+        return ans;
+    }
+   
+   //Your code here
+}
+
+
+
+
 // The main function which returns sum of the maximum
 // sum path between two leaves. This function mainly
 // uses maxPathSumUtil()
