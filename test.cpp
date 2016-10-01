@@ -8,14 +8,7 @@ using namespace std;
 
 int main ()
 {
-  char arr[] = "aaaa";
-  map<char,int> mymap;
-  for (int i =0 ; i < strlen(arr); i++){
-    mymap[arr[i]] += 1;
-  }
-  for (auto el : mymap){
-    cout << el.first << " : " << el.second << endl;
-  }
- cout << endl;
+  char arr[] = "7135";
+  cout << arr[0];
   return 0;
 }
