@@ -7,7 +7,7 @@ using namespace std;
 #define N 3
  
 // Let the given dictionary be following
-string dictionary[] = {"GEEKS", "FOR", "QUIZ", "GO"};
+string dictionary[] = {"ABC", "ABEDHI", "EFGH"};
 int n = sizeof(dictionary)/sizeof(dictionary[0]);
  
 // A given function to check if a given string is present in
@@ -66,9 +66,9 @@ void findWords(char boggle[M][N])
 // Driver program to test above function
 int main()
 {
-    char boggle[M][N] = {{'G','I','Z'},
-                         {'U','E','K'},
-                         {'Q','S','E'}};
+    char boggle[M][N] = {{'A','B','C'},
+                         {'D','E','F'},
+                         {'G','H','I'}};
  
     cout << "Following words of dictionary are present\n";
     findWords(boggle);

@@ -1,6 +1,6 @@
 // A Dynamic Programming based C++ program to count number of ways
 // to cover a distance with 1, 2 and 3 steps
-#include<iostream>
+#include <iostream>
 using namespace std;
  
 int printCountDP(int dist)
@@ -12,8 +12,9 @@ int printCountDP(int dist)
     count[0]  = 1,  count[1] = 1,  count[2] = 2;
  
     // Fill the count array in bottom up manner
-    for (int i=3; i<=dist; i++)
+    for (int i=3; i<=dist; i++){
        count[i] = count[i-1] + count[i-2] + count[i-3];
+    }
  
     return count[dist];
 }

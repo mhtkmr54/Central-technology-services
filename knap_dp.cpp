@@ -10,7 +10,7 @@ using namespace std;
  
 // Returns the maximum value that can be put in a knapsack of capacity W
 int weight = 0;
-
+int n,W;
 
 
 
@@ -18,8 +18,8 @@ int weight = 0;
 int knapSack(int W, int wt[], int val[], int n)
 {
    int i, w;
-   int K[n+1][W+1];
- 
+   int K[n+1][W+1]; 
+   int picks[n+1][W+1] = {0};
    // Build table K[][] in bottom up manner
    for (i = 0; i <= n; i++)
    {
@@ -27,12 +27,20 @@ int knapSack(int W, int wt[], int val[], int n)
        {
            if (i==0 || w==0)
                K[i][w] = 0;
-           else if (wt[i-1] <= w)
+           else if (wt[i-1] <= w){
               //val[i-1 ] is value of curr i
                  K[i][w] = max(val[i-1] + K[i-1][w-wt[i-1]],  K[i-1][w]);
-           else
+                 if (val[i-1]+K[i-1][w-wt[i-1]] > K[i-1][w]){
+                    picks[i][w]=1;
+                 }
+                else
+                    picks[i][w]=-1;
+           }
+           else{
             // wt of individual is > limit 
+                 picks[i][w] = -1; 
                  K[i][w] = K[i-1][w];
+        }
        }
    }
 
@@ -47,6 +55,7 @@ int knapSack(int W, int wt[], int val[], int n)
 
    */
 
+
     for (int i =0; i < n+1 ; i++)
   {
      for (int j =0; j < W+1; j++)
@@ -54,18 +63,34 @@ int knapSack(int W, int wt[], int val[], int n)
         cout << K[i][j] << " ";
      }
      cout << endl;
-  }
+  } 
+  cout << endl;
+   
+/*   int item = n;
+   int size = W;
+   while (item>0){
+        if (picks[item][size]==1){
+            printf("%d ",item-1);
+            item--;
+            size -= wt[item -1];
+        }
+        else{
+            item--;
+        }
+    }
 
+    printf("n");*/
+  
    w = W;
    i = n;
    while (w > 0 && i > 0 ){
-    cout << "EXPLORING   IF " <<  K[i][w] << "  " <<  K[i-1][w-wt[i-1]] << " with wt " << val[i-1] << "  and i " << i <<endl;
-    if ((K[i][w] - K[i-1][w-wt[i-1]]) == val[i-1]){
+    cout << "EXPLORING   IF " <<  K[i][w] << " - " <<  K[i-1][w-wt[i-1]] << " with wt " << wt[i-1] << "  and i " << i <<endl;
+    if ((K[i][w] - K[i-1][w-wt[i-1]]) == wt[i-1]){
     //if ( ((K[i][w] - K[i-1][w]) ==  val[i-1])){
-        cout << "FOUND " << wt[i-1] <<endl;
-        if (weight + wt[i-1] > W){
+        cout << "FOUND " << wt[i-1] << "  and i " << i <<endl;
+/*        if (weight + wt[i-1] > W){
           break;
-        }
+        }*/
         weight += wt[i-1];
         i = i - 1;
         w = w - wt[i-1];
@@ -76,9 +101,13 @@ int knapSack(int W, int wt[], int val[], int n)
     }
 
    }
- 
-   return K[n][W];
+
+
+  cout << endl;
+    return K[n][W];
 }
+
+
  
 
 
@@ -86,13 +115,14 @@ int knapSack(int W, int wt[], int val[], int n)
 // Driver program to test above function
 int main()
 {
-    int val[] = {60, 100, 120};
-    int wt[] = {10, 20, 30};
-    int  W = 50;
-    int n = sizeof(val)/sizeof(val[0]);
+    int val[] = {1, 1, 1, 2, 2, 2, 3, 3, 3};
+    int wt[] = {2, 3, 4, 2, 3, 4, 2, 3, 4};
+     W = 10;
+    n = sizeof(val)/sizeof(val[0]);
     printf("%d", knapSack(W, wt, val, n));
     cout << endl;
     cout << weight << endl;
+  
     return 0;
 }
 

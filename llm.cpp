@@ -15,6 +15,7 @@ class Node
             next=NULL;
         }
 };
+
 class Solution{
     public:
         Node* removeDuplicates(Node *head)
@@ -51,11 +52,8 @@ class Solution{
                        start=start->next;
                    }
                    start->next=p;
-
                }
-                    return head;
-
-
+              return head;
           }
           void display(Node *head)
           {
