@@ -26,7 +26,7 @@ int knapsack(int nItems, int size, int weights[], int values[]){
     for (i=1;i<=nItems;i++){
         for (j=0;j<=size;j++){
             if (weights[i-1]<=j){
-                matrix[i][j] = max(matrix[i-1][j],values[i-1]+matrix[i-1][j-weights[i-1]]);
+                matrix[i][j] = max(matrix[i-1][j],weights[i-1]+matrix[i-1][j-weights[i-1]]);
                 if (values[i-1]+matrix[i-1][j-weights[i-1]]>matrix[i-1][j])
                     picks[i][j]=1;
                 else
@@ -40,14 +40,7 @@ int knapsack(int nItems, int size, int weights[], int values[]){
     }
     cout << matrix[nItems][size] << endl;
 
-    for (int i =0; i < n+1 ; i++)
-  {
-     for (int j =0; j < W+1; j++)
-     {
-        cout << K[i][j] << " ";
-     }
-     cout << endl;
-  }
+
 
     return matrix[nItems][size];
 
@@ -73,7 +66,7 @@ return;
 
 int main(){
     int nItems = 4;
-    int knapsackSize = 10;
+    int knapsackSize = 13;
     int weights[4] = {5,4,6,3};
     int values[4] = {10,40,30,50};
 
@@ -83,5 +76,15 @@ int main(){
     
     printPicks(nItems,knapsackSize, weights);
     cout << endl;
+
+  for (int i =0; i < 100 ; i++)
+  {
+     for (int j =0; j < 100; j++)
+     {
+        cout << matrix[i][j] << " ";
+     }
+     cout << endl;
+  } 
+  cout << endl;
     return 0;
 }
