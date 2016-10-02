@@ -45,7 +45,6 @@ class Solution{
             int sum = 0;
             while (!curr.empty())
                 {
-
                   if(curr.front()->data == -99){
                     cout << "-99 found" << endl;
                     Node* temp = new Node(-99);
