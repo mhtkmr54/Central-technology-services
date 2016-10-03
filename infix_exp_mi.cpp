@@ -67,7 +67,7 @@ void expression_eval(char *str){
 }
 
 int main(){
-	string str1 = "1+44*(4*(9-5)*10)";
+	string str1 = "1+44+(4*(9/3)*10)";
 	str1 += ")";
 	str1 = "(" + str1;
     char str[str1.length()];
