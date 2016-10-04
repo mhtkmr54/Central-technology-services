@@ -6,6 +6,18 @@
 using namespace std;
  
 // Structure for a binary tree node
+
+
+
+
+/*enQueue(q,  x)
+  1) Push x to stack1 (assuming size of stacks is unlimited).
+
+deQueue(q)
+  1) If both stacks are empty then error.
+  2) If stack2 is empty
+       While stack1 is not empty, push everything from satck1 to stack2.
+  3) Pop the element from stack2 and return it.*/
 struct Node
 {
     int key;
