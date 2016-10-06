@@ -89,4 +89,24 @@ strcpy(tab2, tmp.c_str());
 
 g++ -std=c++11
 
+int main()
+{
+    int i = 1, 2, 3;
+     
+    printf("%d", i);
+     
+    return 0;
+}
+
+int main()
+{
+    int i;
+     
+    i = 1, 2, 3; //works
+    printf("%d", i);
+     
+    return 0;
+}
+
+
 */
