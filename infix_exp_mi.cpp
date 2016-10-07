@@ -70,9 +70,18 @@ int main(){
 	string str1 = "1+44+(4*(9/3)*10)";
 	str1 += ")";
 	str1 = "(" + str1;
-    char str[str1.length()];
+  char str[str1.length()];
     strcpy(str,str1.c_str());
-	expression_eval(str);
+    
+    char test[str1.length()];
+    strcpy(test,str);
+    cout << test[str1.length()-3] << endl;
+    int e = str1.length()-3;
+    memmove(test+e, test+e+1, strlen(test) - e);
+    cout << test[e] << endl;
+
+	
+  expression_eval(str);
 	for (auto el : numstack){
 		cout <<  "answer is  " << el  << endl;
 	}

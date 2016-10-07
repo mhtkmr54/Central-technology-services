@@ -15,7 +15,12 @@ using namespace std;
 
 
 
-
+for(i=0; i<r1; ++i)
+    for(j=0; j<c2; ++j)
+    for(k=0; k<c1; ++k)
+    {
+        mult[i][j]+=a[i][k]*b[k][j];
+    }
 
 void foo(int n, int sum)
 {

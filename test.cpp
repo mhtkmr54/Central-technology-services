@@ -1,14 +1,44 @@
-
-#include <iostream>       // std::cin, std::cout
-#include <queue> 
-#include <cstring>          // std::queue
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
 #include <map>
+#include <vector>
+#include <queue>
+#include <deque>
+#include <iterator>
+#include <string>
 
 using namespace std;
+ 
+int size = 4;
+deque<int> mydeq;
 
+
+# include <stdio.h>
 int main ()
 {
-  char arr[] = "7135";
-  cout << arr[0];
-  return 0;
+        int i, j;
+        char a [2] [3] = {{'a', 'b', 'c'}, {'d', 'e', 'f'}};
+        char b [3] [2];
+        char *p = *b;
+        for (i = 0; i < 2; i++) {
+              for (j = 0; j < 3; j++) {
+              *(p + 2*j + i) = a [i] [j];
+              }
+        }
+}
+ 
+int main()
+{
+ mydeq.resize(4,4);
+ int arr[mydeq.size()];
+ cout << mydeq.size();
+ if(arr[0])
+  printf("Initialized to ZERO");
+ else
+  printf("Not initialized to ZERO");
+ 
+ return 0;
 }
