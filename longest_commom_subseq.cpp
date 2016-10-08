@@ -1,5 +1,5 @@
 /* A Naive recursive implementation of LCS problem */
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 #include <cmath>
 #include <cstdio>
 #include <deque>

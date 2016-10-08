@@ -9,6 +9,7 @@
 #include <deque>
 #include <iterator>
 #include <string>
+#include <sstream>
 
 using namespace std;
  
@@ -17,7 +18,7 @@ deque<int> mydeq;
 
 
 # include <stdio.h>
-int main ()
+/*int main ()
 {
         int i, j;
         char a [2] [3] = {{'a', 'b', 'c'}, {'d', 'e', 'f'}};
@@ -28,7 +29,7 @@ int main ()
               *(p + 2*j + i) = a [i] [j];
               }
         }
-}
+}*/
  
 int main()
 {
@@ -39,6 +40,12 @@ int main()
   printf("Initialized to ZERO");
  else
   printf("Not initialized to ZERO");
- 
+  cout << endl;
+  string s = "1234";
+  char to_g = s[2];
+  int a = to_g - '0';
+  int z = stoi(s);
+  cout << "stoi o whole str " << z << endl;
+  cout << "ans " << a + 4 << endl;
  return 0;
 }

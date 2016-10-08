@@ -2,7 +2,7 @@
 
 using namespace std;
 #include <string>
-#include<sstream>
+#include <sstream>
 
 
 int main()

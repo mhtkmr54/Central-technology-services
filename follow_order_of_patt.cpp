@@ -22,7 +22,24 @@ str = "This is another string";
 single conversion of char to str st str[0]
 string firstLetter(1,str[0]);
 
+//str1.length()
+//str.append(str2);  
+ unsigned sz = str.size();
 
+  str.resize (sz+2,'+');
+I like to code in C++
+
+
+
+  std::string str="to be question";
+  std::string str2="the ";
+  std::string str3="or not to be";
+  std::string::iterator it;
+
+  // used in the same order as described above:
+  str.insert(6,str2);                 // to be (the )question
+  str.push_back(char C)
+  
 
 // string::find
 #include <iostream>       // std::cout
