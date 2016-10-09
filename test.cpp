@@ -18,6 +18,8 @@ deque<int> mydeq;
 
 
 # include <stdio.h>
+#include <map>
+#include <deque>
 /*int main ()
 {
         int i, j;
@@ -30,7 +32,7 @@ deque<int> mydeq;
               }
         }
 }*/
- 
+
 int main()
 {
  mydeq.resize(4,4);
@@ -47,5 +49,15 @@ int main()
   int z = stoi(s);
   cout << "stoi o whole str " << z << endl;
   cout << "ans " << a + 4 << endl;
+  map <int,deque<int> > gone;
+  map <int,deque<int> >::iterator it;
+  gone[1].push_back(6);
+  gone[1].push_back(100);
+  gone[2].push_back(-90);
+  if(gone.find(1) != gone.end()){
+    it = gone.find(1);
+    gone.erase(it);
+  } 
+  cout << "gone sie " << gone.size() << endl; 
  return 0;
 }

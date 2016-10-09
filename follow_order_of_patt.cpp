@@ -100,6 +100,10 @@ void remwaste(char * X, char *Y, int big, int patt){
   cout << " final ----> " << str1 << endl;
   char Z[str1.length()];
   strcpy(Z,str1.c_str());
+  for (auto el : Z){
+    cout << el << " ";
+  }
+  cout << endl;
   X = Z;
   return;
 }
