@@ -13,6 +13,7 @@
 using namespace std;
 
 map<int,int> check;
+//keps trk of min reachable
 deque<int> nodetrk;
 deque<int> vis;
 deque<int>::iterator it;
