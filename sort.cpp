@@ -62,18 +62,26 @@ void selectsrt(){
      int min_indx = i;
      for (int j = i+1; j < test.size(); j++)
      {
-
         if (test[j] < test[min_indx]){
         	min_indx = j;
         }
        	swap(test[min_indx],test[i]);
-
      }	  
     }
 	return;
 }
 
-
+// A function to implement bubble sort
+void bubbleSort(int arr[], int n)
+{
+   int i, j;
+   for (i = 0; i < n-1; i++)      
+ 
+       // Last i elements are already in place   
+       for (j = 0; j < n-i-1; j++) 
+           if (arr[j] > arr[j+1])
+              swap(&arr[j], &arr[j+1]);
+}
 
 int main(){
 
