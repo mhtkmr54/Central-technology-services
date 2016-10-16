@@ -21,7 +21,7 @@ class Person{
 
 };
 
-class Student :  public Person{
+class Student :  public Person{//inheritance specifier like public, protected or private. such is not the case in JAVA DIE BITCH JAVA DIE
   private:
     vector<int> testScores;
   public:
