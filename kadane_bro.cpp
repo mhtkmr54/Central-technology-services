@@ -2,6 +2,31 @@
 #include<iostream>
 using namespace std;
  
+
+
+
+
+
+
+
+
+
+
+/*
+
+find the maximum sum such that no two elements 
+are adjacent.
+Dynamic Programming is the efficient technique to solve this. 
+The algorithm can be given as follows:
+Maintain an auxiliary array loot.
+loot[0] = arr[0]
+loot[1] = arr[1]
+loot[i] = max(loot[i - 1], loot[i - 2] + arr[i]),  2 <= i < n
+loot[n - 1] gives the maximum amount of money the thief can take away.
+
+*/
+
+
 int maxSubArraySum(int a[], int size)
 {
     int max_so_far = 0, max_ending_here = 0;

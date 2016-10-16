@@ -30,6 +30,7 @@ int knapSack(int W, int wt[], int val[], int n)
            else if (wt[i-1] <= w){
               //val[i-1 ] is value of curr i
                  K[i][w] = max(val[i-1] + K[i-1][w-wt[i-1]],  K[i-1][w]);
+                  //K[i][w] = max(wt[i-1] + K[i-1][w-wt[i-1]],  K[i-1][w]);
                  if (val[i-1]+K[i-1][w-wt[i-1]] > K[i-1][w]){
                     picks[i][w]=1;
                  }
@@ -88,6 +89,7 @@ int knapSack(int W, int wt[], int val[], int n)
     if (K[i][w] != K[i-1][w] ){
     //if ( ((K[i][w] - K[i-1][w]) ==  val[i-1])){
         cout << "FOUND " << val[i-1] << "  and i-1 " << i-1 <<endl;
+        //cout << "FOUND " << wt[i-1] << "  and i-1 " << i-1 <<endl;
 /*        if (weight + wt[i-1] > W){
           break;
         }*/
