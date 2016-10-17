@@ -33,6 +33,8 @@ int binarySearch(int first, int last, vector<IceCream> arr, int search) {
 
 bool compare(IceCream a, IceCream b) { 
   return a.flavor < b.flavor; 
+  //(a > b ? a : b)
+  //see prority queue
 }
 
 int main() {

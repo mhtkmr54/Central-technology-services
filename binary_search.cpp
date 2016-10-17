@@ -10,6 +10,7 @@ int binarySearch(int arr[], int l, int r, int x)
  
         // If the element is present at the middle itself
         if (arr[mid] == x)  return mid;
+        //  To get thr index of first occurnce of x if ( (mid == 0 || x > arr[mid-1]) && (arr[mid] == x) ) return mid;
  
         // If element is smaller than mid, then it can only be present
         // in left subarray

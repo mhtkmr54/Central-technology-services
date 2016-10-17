@@ -53,6 +53,23 @@ void executive_decision(deque<string>& result, string& sas){
   return;	
 }
 
+
+
+
+
+
+
+
+/* 
+string str = "102:330:3133:76531:451:000:12:44412";
+for (int i=0; i<str.length(); i++)
+{
+    if (str[i] == ':')
+        str[i] = ' ';
+}
+
+
+*/
 int main (){
    string strg;
    while (strg != "end"){
