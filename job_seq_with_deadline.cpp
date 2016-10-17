@@ -1,7 +1,7 @@
 // Program to find the maximum profit job sequence from a given array
 // of jobs with deadlines and profits
-#include<iostream>
-#include<algorithm>
+#include <iostream>
+#include <algorithm>
 using namespace std;
  
 // A structure to represent a job
