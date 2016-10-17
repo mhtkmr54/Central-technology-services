@@ -23,7 +23,7 @@ int binarySearch(int arr[], int l, int r, int x)
    // We reach here when element is not present in array
    return -1;
 }
- 
+ //mising no. in AP
  int findMissingUtil(int arr[], int low, int high, int diff)
 {
     // There must be two elements to find the missing
