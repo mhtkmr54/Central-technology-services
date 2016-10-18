@@ -28,3 +28,40 @@ void printLeaders(int arr[], int size)
         }
     }    
 }
+
+
+
+
+
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+#include <deque>
+using namespace std;
+
+
+int main() {
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */  
+    int size;
+    int k;
+    int el;
+    deque<int> myvector;
+    cin >> size >> k ;
+    int n = size;
+    for (int s = 0; s < size ; s++){
+        cin >> el;
+        myvector.push_back(el);
+    }
+    for (int j = 0 ; j < k ; j++){
+        int fr = myvector.front();
+        myvector.pop_front();
+        myvector.push_back(fr);
+    }
+    for (auto el : myvector){
+        cout << el << " ";
+    }
+    cout << endl;
+    return 0;
+}

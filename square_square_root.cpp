@@ -7,3 +7,14 @@ bool fun(int n)
 }
 
 //true if n is perfect square
+
+x = m;
+y = 1;
+while (x - y > e)
+{
+    x = (x + y)/2;
+    y = m/x;
+}
+print(x);
+
+x is sqrt(m1)

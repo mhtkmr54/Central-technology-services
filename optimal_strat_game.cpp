@@ -30,6 +30,8 @@ std::pair <int,int> foo;
 
   foo = std::make_pair (10,20);
   bar = std::make_pair (10.5,'A'); 
+    OR
+  pair<int, int> my_pair(i, j);
 
 */
 

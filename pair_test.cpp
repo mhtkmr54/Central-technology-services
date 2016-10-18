@@ -33,6 +33,19 @@ deque<int> mydeq;
         }
 }*/
 
+/*
+                                    p   A     I    R   S
+
+std::pair <int,int> foo;
+  std::pair <int,int> bar;
+
+  foo = std::make_pair (10,20);
+  bar = std::make_pair (10.5,'A'); 
+    OR
+  pair<int, int> my_pair(i, j);
+
+*/
+
 int main()
 {
  mydeq.resize(4,4);

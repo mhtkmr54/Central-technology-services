@@ -97,7 +97,7 @@ string BFS_shortest(vector<vector<int> > arr, int start, int nodes)
     }
   }
 
-  cout << "reach "<< endl;
+  //cout << "reach "<< endl;
   for(auto elem : reach)
       {
          cout << elem << " ";

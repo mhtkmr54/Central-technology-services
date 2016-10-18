@@ -117,12 +117,27 @@ int max(int a, int b)
 /* Driver program to test above function */
 int main()
 {
-  char X[] = "AGGTAB";
+  int m;
+  int n;
+  cin >> m;
+  cin >> n;
+/*  char X[] = "AGGTAB";
   char Y[] = "GXTXAYB";
   int m = strlen(X);
-  int n = strlen(Y);
- 
-  printf("Length of LCS is %d\n", lcs1( X, Y, m, n ) );
+  int n = strlen(Y);*/
+  char X[m];
+  char[n];
+  char s;
+  for (int p = 0; p < m ; p++){
+    cin >> s;
+    X[p] = s;
+  }
+  for (int q = 0; q < n ; q++){
+    cin >> s;
+    Y[q] = s;
+  }
+  lcs1( X, Y, m, n );
+  //sprintf("Length of LCS is %d\n", lcs1( X, Y, m, n ) );
 
  
  

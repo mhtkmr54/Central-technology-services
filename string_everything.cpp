@@ -20,11 +20,25 @@ int main()
     std::cout << "std::stoi(\"" << str1 << "\") is " << myint1 << '\n';
     std::cout << "std::stoi(\"" << str2 << "\") is " << myint2 << '\n';
     std::cout << "std::stoi(\"" << str3 << "\") is " << myint3 << '\n';
+   std::string str="We think in generalities, but we live in details.";
+                                           // (quoting Alfred N. Whitehead)
+
+  std::string str2 = str.substr (3,5);     // "think"
+
+  std::size_t pos = str.find("live");      // position of "live" in str
+
+  std::string str3 = str.substr (pos);     // get from "live" to the end
 }
 /*
 char arr[ ] = "This is a test";
 
 string str(arr);
+
+
+OTHER WAY ROUND 
+string tmp = "cat";
+char tab2[1024];
+strcpy(tab2, tmp.c_str());
 
 
 //  You can also assign directly to a string.
