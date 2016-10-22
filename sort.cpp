@@ -22,7 +22,7 @@ void insertsrt(){
 			j--;
 		}
         test[j+1] = key;
-	}
+	}	
 	return;
 }
 

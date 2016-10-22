@@ -27,7 +27,7 @@ class IceCream
 bool Compare(IceCream a, IceCream b)
 {
     return a.time_to_prep < b.time_to_prep;//max
-    //return a.time_to_prep < b.time_to_prep;//min heap ??
+    //return a.time_to_prep > b.time_to_prep;//min heap ??
 }
 
 int main()

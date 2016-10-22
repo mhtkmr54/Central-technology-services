@@ -17,7 +17,7 @@ int starti;
 int startj;
 
 int main(){
-	cin >> rows;
+/*	cin >> rows;
 	cin >> columns;
 	deque <deque<char> > arr;
 	arr.resize(rows,deque<char>(columns, '0'));
@@ -43,7 +43,33 @@ int main(){
             cout << arr[i][j] << " " ;
          }
          cout << endl;
-       }
-
+       }*/
+    int a = 0;
+    int b = 0;
+    int k = a++ + 99;
+    k = a + 99;
+    cout << k << ++b << endl;
+    cout << a << b << endl;
 	return 0;
+}
+
+
+#include <stdio.h>
+#include <stdlib.h>
+ 
+int main()
+{
+    FILE *fp = fopen("test.txt", "wx");
+    if (fp == NULL)
+    {
+        puts("Couldn't open file or file already exists");
+        exit(0);
+    }
+    else
+    {
+        fputs("GeeksforGeeks", fp);
+        puts("Done");
+        fclose(fp);
+    }
+    return 0;
 }
