@@ -45,7 +45,6 @@ int main() {
     		cout << "j  " << j << endl;
     		mydeq.erase(mydeq.begin(),mydeq.begin()+j);
     	}
-    	
     }
     cout << cost;
 

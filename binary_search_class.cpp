@@ -27,7 +27,8 @@ int binarySearch(int first, int last, vector<IceCream> arr, int search) {
         } 
         else{
             return binarySearch( mid+1, r,arr, x);
-        }}
+        }
+    }
    return -1;
 }
 
@@ -45,7 +46,6 @@ int main() {
         cin >> m >> n;
         vector<IceCream> arr;
         arr.reserve(n); 
-
         for (int i = 0; i < n; i++) {
             int cost;
             cin >> cost;
