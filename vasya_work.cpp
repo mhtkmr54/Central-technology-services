@@ -17,6 +17,19 @@ map <char,deque<int>> my_map_t;
 map <char,deque<int>> my_map_s;
 
 
+/*
+long int fact(int x)          //defining the function or function definition
+{
+	int i, f=1;
+	for(i=2; i<=x; i++)
+	{
+		f=f*i;
+	}
+	return f;
+}
+
+
+*/
 
 //char tab2[1024];
 //strcpy(tab2, tmp.c_str());
