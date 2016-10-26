@@ -70,3 +70,66 @@ Node* Insert(Node *head,int data)
 
 
 }
+
+/*
+  Merge two sorted lists A and B as one linked list
+  Node is defined as 
+  struct Node
+  {
+     int data;
+     struct Node *next;
+  }
+*/
+Node* MergeLists(Node *headA, Node* headB)
+{
+  if (headA == NULL){
+      return headB;
+  }
+  if (headB == NULL){
+      return headA;
+  }
+  Node* a = headA;
+  Node* b = headB;
+  Node* abc = new Node();
+  Node* abcH = abc;
+  if (a->data < b->data){
+      abc->data = a->data;
+      a = a->next;
+  }
+  else{
+      abc->data = b->data;
+      b = b->next;
+  }
+    
+  while (a != NULL && b != NULL){
+      if (a->data < b->data){
+        Node* el  = new Node();
+        el->data = a->data;
+        abc->next = el;
+        abc = abc->next;
+        a = a->next;
+      }
+      else {
+        Node* el  = new Node();
+        el->data = b->data;
+        abc->next = el;
+        abc = abc->next;
+        b = b->next;
+      } 
+  }
+  while (a != NULL){
+        Node* el  = new Node();
+        el->data = a->data;
+        abc->next = el;
+        abc = abc->next;
+        a = a->next;
+  }
+  while (b != NULL){
+        Node* el  = new Node();
+        el->data = b->data;
+        abc->next = el;
+        abc = abc->next;
+        b = b->next;
+  }
+  return abcH;
+}
