@@ -24,8 +24,10 @@ int maxDiff(int arr[], int arr_size)
 int main()
 {
   int arr[] = {1, 2, 6, 80, 100};
+  //2 3 10 6 4 8 1
+  int arr1[] = {2,3,10,6,4,8,1};
   int size = sizeof(arr)/sizeof(arr[0]);
-  printf("Maximum difference is %d",  maxDiff(arr, size));
+  printf("Maximum difference is %d",  maxDiff(arr1, 7));
   getchar();
   return 0;
 }
