@@ -23,6 +23,30 @@ int main()
    std::string str="We think in generalities, but we live in details.";
                                            // (quoting Alfred N. Whitehead)
 
+// MY DEQUE
+// erase the 6th element
+  mydeque.erase (mydeque.begin()+5);
+
+  // erase the first 3 elements:
+  mydeque.erase (mydeque.begin(),mydeque.begin()+3);
+
+ for (std::deque<int>::iterator it = mydeque.begin(); it!=mydeque.end(); ++it)
+    std::cout << ' ' << *it;
+
+
+std::string str ("This is an example sentence.");
+  std::cout << str << '\n';
+                                           // "This is an example sentence."
+  str.erase (10,8);                        //            ^^^^^^^^
+  std::cout << str << '\n';
+                                           // "This is an sentence."
+  str.erase (str.begin()+9);               //           ^
+  std::cout << str << '\n';
+                                           // "This is a sentence."
+  str.erase (str.begin()+5, str.end()-9);  //       ^^^^^
+  std::cout << str << '\n';
+                                           // "This sentence."
+
   std::string str2 = str.substr (3,5);     // "think"
 
   std::size_t pos = str.find("live");      // position of "live" in str
