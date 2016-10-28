@@ -23,10 +23,25 @@ int main()
    std::string str="We think in generalities, but we live in details.";
                                            // (quoting Alfred N. Whitehead)
 
+   // Reverse str[beign..end]
+   reverse(str.begin(),str.end());
+
+   -------------------------------------------------------PERMUTATIONS : 
+
+   string str = "4321";
+    if ( prev_permutation(str.begin(), str.end()) )
+        cout << "Previous permutation is "<< str ;
+    else
+        cout << "Previous permutation doesn't exist" ;
+
+----------------------------------------------------------------------
+
 // MY DEQUE
 // erase the 6th element
   mydeque.erase (mydeque.begin()+5);
 
+ toupper(c) C IS A CHAR (str[i])
+tolower(c)
   // erase the first 3 elements:
   mydeque.erase (mydeque.begin(),mydeque.begin()+3);
 

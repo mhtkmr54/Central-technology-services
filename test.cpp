@@ -20,8 +20,11 @@ int main(){
         	cout<< str << endl;
         	 f = next_permutation(str.begin(),str.end());
         }
-        cout << 1%2 ; 
+        cout << 1%2 << endl; 
      //cout << factorial(5) << endl;
+        string sample = "12345678";
+        string sam = sample.substr (3,5);
+        cout<< sam << endl;
 	return 0;
 }
 
