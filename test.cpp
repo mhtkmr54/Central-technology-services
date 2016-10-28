@@ -5,7 +5,8 @@
 #include <algorithm>
 #include <stack>
 #include <queue>
-
+//#include <conio.h>
+#include <math.h>
 using namespace std;
 
 
@@ -20,5 +21,7 @@ int main(){
         	 f = next_permutation(str.begin(),str.end());
         }
         cout << 1%2 ; 
+     //cout << factorial(5) << endl;
 	return 0;
 }
+

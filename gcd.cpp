@@ -17,6 +17,16 @@ int gcd(int a, int b)
     return gcd(b%a, a);
 }
 
+gcd of N numbers(){
+    int result = numbers[0];
+for(int i = 1; i < numbers.length; i++){
+    result = gcd(result, numbers[i]);
+}
+return result;
+}
+
+
+
 int main(){
 	string names
 ;
