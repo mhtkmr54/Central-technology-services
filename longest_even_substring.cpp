@@ -45,4 +45,4 @@ int main(void)
     char str[] = "153803";
     printf("Length of the substring is %d", findLength(str));
     return 0;
-}
+}                                   

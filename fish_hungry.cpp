@@ -68,3 +68,13 @@ int main(){
 
 
 }
+
+"""
+ init fish = f
+ public static int findCount(int[] arr, int i, int f){
+          if (i == arr.length) return 0;
+          if (f  > arr[i]) return findCount(arr, i+1, f+arr[i]);
+          return Math.min(1 + findCount(arr, i, 2*f-1), arr.length - i);
+          //return Math.min(1 + findCount(arr, i, 2*f-1), 1 + findCount(arr, i+1, f));
+     }
+"""
