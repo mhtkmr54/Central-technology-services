@@ -1,6 +1,6 @@
 // A Naive recursive solution for Rod cutting problem
-#include<stdio.h>
-#include<limits.h>
+#include <stdio.h>
+#include <limits.h>
  
 // A utility function to get the maximum of two integers
 int max(int a, int b) { return (a > b)? a : b;}
@@ -30,7 +30,7 @@ int main()
     printf("Maximum Obtainable Value is %d\n", cutRod(arr, size));
     getchar();
     return 0;
-    x
+    
 // for each length L
 int getProfit(int* rods, int cutCost, int metalPrice, int L,int n)
 {
