@@ -70,7 +70,6 @@ void solve(){
                 DP[u][diff + M] = (DP[u][diff + M] + DP[u - diff][diff + M]) % inf;
                 DP[u][diff + M] = (DP[u][diff + M] + sl[u - diff]) % inf;
             }
-            
         }
         sl[u]++;
     }

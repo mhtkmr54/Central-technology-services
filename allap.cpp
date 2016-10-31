@@ -22,19 +22,27 @@ int main() {
     }
     int mn = *min_element(mine.begin(),mine.end());
     int mx = *max_element(mine.begin(),mine.end());
-    int range - mx - mn;
-    for (int j = range; j > 0; j--){
+    int range = mx - mn;
+    for (int j = range; j >= -range; j--){
+        cout << "range " << j << endl;
         int diff_num = 1;
         int flag = 0;
         for (int k =0; k < N; k++){   
             int elem = mine[k]+j;
-            while(find(mine.begin()+k+1, mine.end(), elem) != mine.end()){
+            cout << "finding : native" << elem << " : " << k << endl;
+            while(find(mine.begin()+k, mine.end(), elem) != mine.end()){
+               
               flag = 1; 
               elem += j;
               ++diff_num;
              }
+             if (flag == 1){
+              break;
+             }
+
          }
         if(flag == 1){
+            cout << "max subseq " << diff_num << endl;
             Diffs.push_back(diff_num);
         }else{
             continue;
@@ -43,6 +51,10 @@ int main() {
      }
      int total = 0;
      total += 1 + N;
-     for 
+     for (auto e : Diffs){
+         int to_add = (e*(e-1))/2;
+         total +=  to_add;
+     }
+    cout << total << endl;
     return 0;
 }

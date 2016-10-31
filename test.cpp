@@ -8,9 +8,9 @@
 //#include <conio.h>
 #include <math.h>
 using namespace std;
+typedef long long int lli;
 
-
-
+const int MOD = 1e9 + 7;
 int main(){
 	string str = "azzz";
     int f = next_permutation(str.begin(),str.end());
@@ -25,6 +25,12 @@ int main(){
         string sample = "12345678";
         string sam = sample.substr (3,5);
         cout<< sam << endl;
+        cout << endl;
+        lli abc = 6564120420;
+        cout << fmod(abc,pow(10,9)+7) << "   ";
+        int ran = 6564120420;
+        cout << abc % MOD << endl;  
+        cout << endl;
 	return 0;
 }
 
