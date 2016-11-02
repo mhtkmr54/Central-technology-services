@@ -68,6 +68,26 @@ std::string str ("This is an example sentence.");
 
   std::string str3 = str.substr (pos);     // get from "live" to the end
 }
+
+std::map<char,int> mymap;
+  std::map<char,int>::iterator it;
+
+  // insert some values:
+  mymap['a']=10;
+  mymap['b']=20;
+  mymap['c']=30;
+  mymap['d']=40;
+  mymap['e']=50;
+  mymap['f']=60;
+
+  it=mymap.find('b');
+  mymap.erase (it);                   // erasing by iterator
+
+  mymap.erase ('c');                  // erasing by key
+
+  it=mymap.find ('e');
+  mymap.erase ( it, mymap.end() );    // erasing by range
+  
 /*
 char arr[ ] = "This is a test";
 
