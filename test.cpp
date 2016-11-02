@@ -31,6 +31,12 @@ int main(){
         int ran = 6564120420;
         cout << abc % MOD << endl;  
         cout << endl;
+        float a = 1;
+        int rel = (int)a;
+        if (rel == a){
+            cout << "ohh" << endl; 
+        }
+        cout << a << endl;      
 	return 0;
 }
 
