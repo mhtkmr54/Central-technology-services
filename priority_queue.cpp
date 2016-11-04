@@ -38,8 +38,8 @@ int main()
     my_pq.push(IceCream(9));
     my_pq.push(IceCream(11));
     cout << my_pq.top().time_to_prep << endl;
-    my_pq.pop();
-    cout << my_pq.top().time_to_prep << endl;
+    //my_pq.pop();
+    cout << my_pq[2].time_to_prep << endl;
     cout << endl;
     return 0;
 }
