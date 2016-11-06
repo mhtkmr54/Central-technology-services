@@ -21,8 +21,8 @@ int main(){
         	 f = next_permutation(str.begin(),str.end());
         }
         cout << 1%2 << endl; 
-     //cout << factorial(5) << endl;
-        string sample = "12345678";
+        cout << "df" <<factorial(5) << endl;
+/*        string sample = "12345678";
         string sam = sample.substr (3,5);
         cout<< sam << endl;
         cout << endl;
@@ -37,6 +37,12 @@ int main(){
             cout << "ohh" << endl; 
         }
         cout << a << endl;      
-	return 0;
+        double x = 1.7;
+        cout << (int)x << endl;	
+        cout << 10 / 3* 3  % 5 << endl;
+        char *b[2] = {"hello", "hi"};
+        cout << "ans  " << sizeof(b) << endl;
+        cout << 1 + 2 + "3" << endl;*/
+return 0;
 }
 
