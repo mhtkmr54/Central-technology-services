@@ -23,15 +23,21 @@ void SieveOfEratosthenes(int n)
     }
  
     // Print all prime numbers
-    for (int p=2; p<=n; p++)
-       if (prime[p])
-          cout << p << " ";
+    int calc = 1;
+    for (int p=2; p<=n; p++){
+       if (prime[p]){
+          calc = calc * p;
+         // cout << p << " ";
+          }
+    }
+   cout << "--   " << endl;
+   cout << calc << "CALC" << endl;
 }
  
 // Driver Program to test above function
 int main()
 {
-    int n = 30;
+    int n = 20;
     cout << "Following are the prime numbers smaller "
          << " than or equal to " << n << endl;
     SieveOfEratosthenes(n);

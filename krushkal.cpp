@@ -43,7 +43,7 @@ void Union(map<int,int>& parent, int x, int y)
     parent[xset] = yset;
 }
 
-int find_union(){
+int find_union(){ // KRUSKAL O(MLOGN)
   map<int,int> parent;
   for (int k =0; k < nodes; k++){
       parent[k] = -1;

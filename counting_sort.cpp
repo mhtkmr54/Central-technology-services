@@ -66,6 +66,7 @@ void count_sort(){
   for (auto el : mydeque){
  	cout << el.first << "  "<< el.second << endl;
  }  
+
 // dump idea
 /* for (auto el : min_max){
  	buckets[el - min] += 1;
@@ -94,6 +95,7 @@ int counter = 0;
     mydeque.erase(it);
     counter++;
  }
+ 
  cout << "==========================+ANS=================================" << endl;
   for (auto el : ans_mydeque){
   	string Z;

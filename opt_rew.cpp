@@ -21,8 +21,9 @@ struct Job
 // This function is used for sorting all jobs according to profit
 bool comparison(Job a, Job b)
 {
-     if (a.profit == b.profit){
-      return a.mtime < b.mtime;
+     if (a.profit == b.profit && a.dead > b.dead){
+      //return a.mtime < b.mtime;
+      return a.dead < b.dead;
      }
      else{
       return a.profit > b.profit;
@@ -33,10 +34,24 @@ bool comparison(Job a, Job b)
 // Returns minimum number of platforms reqquired
 void JobScheduling(deque<Job>& arr)
 {
+
     // Sort all jobs according to decreasing order of prfit
    int n = arr.size();
     sort(arr.begin(), arr.end(), comparison);
+
+    for (auto el : arr){
+      cout << el.profit << " " << el.dead << endl;
+    }
+
+   // STEPS
+    // get max Deadline value
+    //say dmax = 3
+    // ------------------------------------------
+    // -                                        -
+    // -                                        -
+    // ------------------------------------------
  
+   cout << endl;
     int result[n]; // To store result (Sequence of jobs)
     bool slot[n];  // To keep track of free time slots
  
@@ -64,35 +79,35 @@ void JobScheduling(deque<Job>& arr)
     }
  
     // Print the result
-    for (int i=0; i<n; i++)
-       if (slot[i])
-         cout << arr[result[i]].profit << " ";
+    for (int i=0; i<n; i++){
+      if (slot[i]){
+        cout << arr[result[i]].profit << " ";
+          }
+       } 
 }
- 
+
+
+
+
 // Driver program to test methods
 int main()
 {
-   int T;
-   cin >> T;
-   deque <int> answer;
-   while (T-- > 0){
-  /*  Job arr[] = { {'a', 2, 100}, {'b', 1, 19}, {'c', 2, 27},
-                   {'d', 1, 25}, {'e', 3, 15}};
-    int n = sizeof(arr)/sizeof(arr[0]);
+
+   deque<Job> arr = { {1, 5, 100}, {1, 6, 19}, {1, 10, 27},
+                   {1, 50, 25}, {1, 10, 15}};
+  /*  int n = sizeof(arr)/sizeof(arr[0]);
     cout << "Following is maximum profit sequence of jobs\n";
     printJobScheduling(arr, n);*/
-    int N;
+/*    int N;
     cin >> N;
     deque<Job> arr;
     while(N-- > 0){
       Job a;
       cin >> a.dead >> a.profit >> a.mtime;
       arr.push_back(a);
-      
-
-    }
+    }*/
     JobScheduling(arr);
-   }
+   
     
     return 0;
 }

@@ -8,8 +8,8 @@
 // The main function that finds shortest distances from src to
 // all other vertices using Bellman-Ford algorithm.  The function
 // also detects negative weight cycle
-void BellmanFord(struct Graph* graph, int src)
-{
+void BellmanFord(struct Graph* graph, int src) MN O(N)
+ {
     int V = graph->V;
     int E = graph->E;
     int dist[V];
