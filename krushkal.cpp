@@ -48,6 +48,7 @@ int find_union(){ // KRUSKAL O(MLOGN)
   for (int k =0; k < nodes; k++){
       parent[k] = -1;
    }
+   
   for (auto el : edges){
      int x  = find(parent, el.first);
      int y  = find(parent, el.second);
