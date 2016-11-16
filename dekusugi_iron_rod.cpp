@@ -56,18 +56,26 @@ int main(){
             i++;
 
 		}
-		  if (flag == 0){
+/*		  if (flag == 0){
+		  	int s1 =0;
+		  	int s2 = 0;
 		  	for(int i = 0; i < mi.size(); i++){
+		  		s1 += mi[i].in;
+		  		s2 += mi[i].ou;
 		  		for(int j = i+1; j < mi.size(); j++){
-					if((mi[i].in + mi[j].in) < L && L < (mi[i].ou + mi[j].ou)){
+					if((s1 + mi[j].in) < L && L < ( + mi[j].ou)){
 						cout << mi[i].price + mi[i].price << endl;
 						flag = 1;
 						break;
+					}
+					else{
+
 					}		  			
                     
 		  		}
               }
-		  	}
+		  	}*/
+            
 	}
 
 	return 0;
