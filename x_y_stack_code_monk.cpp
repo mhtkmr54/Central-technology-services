@@ -14,6 +14,60 @@ using namespace std;
 typedef long long int lli;
 map<char,int>::iterator it;
 
+void printNGE(int arr[], int n)
+{
+    int i = 0;
+    struct stack s;
+    s.top = -1;
+    int element, next;
+ 
+    /* push the first element to stack */
+    push(&s, arr[0]);
+ 
+    // iterate for rest of the elements
+    for (i=1; i<n; i++)
+    {
+        next = arr[i];
+ 
+        if (isEmpty(&s) == false)
+        {
+            // if stack is not empty, then pop an element from stack
+            element = pop(&s);
+ 
+            /* If the popped element is smaller than next, then
+                a) print the pair
+                b) keep popping while elements are smaller and
+                stack is not empty */
+            while (element < next)
+            {
+                printf("\n %d --> %d", element, next);
+                if(isEmpty(&s) == true)
+                   break;
+                element = pop(&s);
+            }
+ 
+            /* If element is greater than next, then push
+               the element back */
+            if (element > next)
+                push(&s, element);
+        }
+ 
+        /* push next to stack so that we can find
+           next greater for it */
+        push(&s, next);
+    }
+ 
+    /* After iterating over the loop, the remaining
+       elements in stack do not have the next greater
+       element, so print -1 for them */
+    while (isEmpty(&s) == false)
+    {
+        element = pop(&s);
+        next = -1;
+        printf("\n %d -- %d", element, next);
+    }
+}
+
 int main(){
 	int T;
 	cin >> T;
