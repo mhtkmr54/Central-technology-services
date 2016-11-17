@@ -14,6 +14,7 @@ using namespace std;
 typedef long long int lli;
 map<char,int>::iterator it;
 
+// O(N)
 void printNGE(int arr[], int n)
 {
     int i = 0;
