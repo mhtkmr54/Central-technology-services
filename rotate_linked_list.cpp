@@ -13,16 +13,13 @@ public:
             fast = fast->next;
             sizeOfList++;
         }
-
         int firstNodePos = sizeOfList - (k % sizeOfList);
         for (int i = 0; i < firstNodePos; i++) {
             slow = slow->next;
         }
-
         fast->next = dummy->next;
         dummy->next = slow->next; 
         slow->next = NULL;
-
         return dummy->next;
     }
 };
