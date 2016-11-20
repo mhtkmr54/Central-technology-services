@@ -78,9 +78,7 @@ class Solution{
         Printlevel(root->right, level-1);
       }
      };
-
-
-
+     
       void levelOrder(){
              int height = Getheight(root);
              int k = 1;
