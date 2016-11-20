@@ -7,6 +7,7 @@
 #include <queue>
 //#include <conio.h>
 #include <math.h>
+#include <map>
 using namespace std;
 typedef long long int lli;
 
@@ -20,8 +21,10 @@ int main(){
         	cout<< str << endl;
         	 f = next_permutation(str.begin(),str.end());
         }
-        cout << 1%2 << endl; 
-        cout << "df" <<factorial(5) << endl;
+   /*     cout << 1%2 << endl; 
+        cout << "df" <<factorial(5) << endl;*/
+        map <int,int> mine;
+        cout << "dfalt "<< mine[12] << endl;
 /*        string sample = "12345678";
         string sam = sample.substr (3,5);
         cout<< sam << endl;
