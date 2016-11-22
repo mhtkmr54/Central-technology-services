@@ -26,8 +26,8 @@ class IceCream
 
 bool Compare(IceCream a, IceCream b)
 {
-    return a.time_to_prep < b.time_to_prep;//max
-    //return a.time_to_prep > b.time_to_prep;//min heap ??
+    //return a.time_to_prep < b.time_to_prep;//max
+    return a.time_to_prep > b.time_to_prep;//min heap ??
 }
 
 int main()
@@ -37,9 +37,14 @@ int main()
     my_pq.push(IceCream(33));
     my_pq.push(IceCream(9));
     my_pq.push(IceCream(11));
-    cout << my_pq.top().time_to_prep << endl;
+    cout << "b4 top  " << my_pq.top().time_to_prep << endl;
     //my_pq.pop();
-    cout << my_pq[2].time_to_prep << endl;
+    IceCream buf = my_pq.top();
+    buf.time_to_prep = 5;
+    my_pq.pop();
+    my_pq.push(buf);
+    cout << "New top " << my_pq.top().time_to_prep << endl;
+    //cout << my_pq[2].time_to_prep << endl;
     cout << endl;
     return 0;
 }

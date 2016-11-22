@@ -184,3 +184,9 @@ int main(){
     cout << count << endl;
     return 0;
 }
+             case '+': cout <<" |" << val2 + val1 << "| "; s.push_back(val2 + val1); break;
+             case '-': cout <<" |" << val2 - val1 << "| "; s.push_back(val2 - val1); break;
+             case '*': cout <<" |" << val2 * val1 << "| "; s.push_back(val2 * val1); break;
+             case '/': cout <<" |" << val2/val1 << "| ";   s.push_back(val2/val1);  break;
+
+             9 5 1 2 + 4 * + 3 -

@@ -8,6 +8,8 @@
 //#include <conio.h>
 #include <math.h>
 #include <map>
+#include <string>
+#include <cstring>
 using namespace std;
 typedef long long int lli;
 
@@ -25,6 +27,7 @@ int main(){
         cout << "df" <<factorial(5) << endl;*/
         map <int,int> mine;
         cout << "dfalt "<< mine[12] << endl;
+        cout << stoi("/") << endl;
 /*        string sample = "12345678";
         string sam = sample.substr (3,5);
         cout<< sam << endl;
