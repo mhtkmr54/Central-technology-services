@@ -36,7 +36,7 @@ int short_path(deque < deque <int> >& arr, int R, int C, int i, int j){
               return memo[res] = min(el, arr[i][j] + short_path(arr, R,C,i,j-1));
             }
            }
-           
+
        }
 }
 
@@ -71,4 +71,43 @@ int main(){
            }
           cout << minPathSum(arr) << endl;
   return 0;
+}
+
+
+int Solution::minPathSum(vector<vector<int> > &A) {
+    // Do not write main() function.
+    // Do not read input, instead use the arguments to the function.
+    // Do not print the output, instead return values as specified
+    // Still have a doubt. Checkout www.interviewbit.com/pages/sample_codes/ for more details
+    int r = A.size();
+    int c = A[0].size();
+    if (r == 1 && c == 1){
+        return 0;
+    }
+    /*map <string,int> memo;*/
+    //cout << short_path(A,r,c,r-1,c-1) << endl;
+    //return short_path(A,r,c,r-1,c-1);
+    
+    int minPath[r][c];
+    for (int i=0; i<r; i++){
+        for(int j=0; j<c; j++){
+          if (i==0 && j== 0){
+              minPath[i][j] = A[i][j];
+          }
+          else if (i == 0 && j != 0){
+              minPath[i][j] = A[i][j] + minPath[i][j-1];
+           }
+           else if( j == 0 && i != 0){
+               minPath[i][j]  = A[i][j] + minPath[i-1][j];
+           }
+           else {
+             //int el = arr[i][j] + minPath[i-1,j];;
+            //if(j-1 >=0){
+            //  cout << "FOR " << i << " " << j << " " << min(el, arr[i][j] + short_path(arr, R,C,i,j-1)) << endl;
+               minPath[i][j] = A[i][j] + min(minPath[i-1][j] , minPath[i][j-1]);
+            //}
+        }
+    }
+    }
+    return minPath[r-1][c-1];
 }
