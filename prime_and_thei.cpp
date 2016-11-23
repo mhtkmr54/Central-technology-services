@@ -42,7 +42,7 @@ bool isPrime(int n) {
 }
 
 int primeNumbers(int k) {
-	    int icn = 1;
+        int icn = 1;
         for ( int i = 3; i <= k; i += 2) {
                 if (isPrime(i)) {
                         ++icn;
@@ -57,7 +57,7 @@ int main(){
 	cin >> M;
 	int C =  primeNumbers(M) ;
     cout << (fact(C)*fact(M-C)) % MOD;
-    cout << endl;`
+    cout << endl;
 	return 0;
 }
 
