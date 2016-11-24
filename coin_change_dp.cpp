@@ -12,6 +12,7 @@ using namespace std;
 #define MAX 999001
 
 deque <int> coins;
+//get min no. of coins
 
 void printCombinations( deque<int> R){
   if (R[R.size() - 1] == -1){
