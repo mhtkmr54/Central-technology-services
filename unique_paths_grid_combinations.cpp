@@ -9,6 +9,17 @@
 
 using namespace std;
 
+lli fact(int n)
+{
+    if (memo.find(n) != memo.end()){
+      return memo[n];
+       }
+    if (n >= 1)
+        return memo[n] = n*fact(n-1);
+    else
+        return 1;
+}
+
 int uniquePaths(int A, int B) {
     // Do not write main() function.
     // Do not read input, instead use the arguments to the function.
@@ -46,6 +57,39 @@ int uniquePaths(int A, int B) {
     if(A==1 || B==1)    return 1;
     return uniquePaths(A-1,B)+uniquePaths(A,B-1);
 }
+
+
+
+
+
+
+
+int Solution::uniquePaths(int A, int B) {
+    // Do not write main() function.
+    // Do not read input, instead use the arguments to the function.
+    // Do not print the output, instead return values as specified
+    // Still have a doubt. Checkout www.interviewbit.com/pages/sample_codes/ for more details
+    long long c[A+1][B+1];
+    const int MOD = 1000000009;
+    
+    for (int i = 1; i <= A; i++){
+		c[i][1]  = 1;
+    }
+	 for (int i = 1; i <= B; i++){
+		c[1][i]  = 1;
+	 }
+	for (int i = 2; i <= A; i++){
+		for (int j = 2; j <= B; j++){
+			c[i][j] = (c[i - 1][j] + c[i][j - 1]) % MOD;
+		}
+	}		
+			
+   return c[A][B];
+    
+}
+
+
+
 
 int main(){
 	cout << uniquePaths(100,1) << endl;
