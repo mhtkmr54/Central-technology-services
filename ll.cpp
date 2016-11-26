@@ -65,10 +65,6 @@ Node* Insert(Node *head,int data)
   root->next = head ;
   head = root;
   return head;
-    
-
-
-
 }
 
 /*

@@ -14,7 +14,7 @@ bool compare(pii a, pii b) {
   if (a.first == b.first){
   	return a.second < b.second; 
   }else{
-    return a.first < b.first;
+    return a.first > b.first;
   }
 }
 
