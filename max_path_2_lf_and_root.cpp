@@ -115,6 +115,6 @@ int main()
     root->right->right->right->right= newNode(-1);
     root->right->right->right->right->left= newNode(10);
     cout << "Max pathSum of the given binary tree is "
-         << maxPathSum(root);
+         << maxPathSum(root) << endl;
     return 0;
 }
