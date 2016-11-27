@@ -31,9 +31,10 @@
         }
         int left=cntMatrixUtil(A->left,B->left,min,A->val);
         int right=cntMatrixUtil(A->right,B->right,A->val,max);
-        if(left==-1 || right ==-1)
+        if (left == -1 || right == -1){
           return -1;
-        return inserts+cntMatrixUtil(A->left,B->left,min,A->val)+cntMatrixUtil(A->right,B->right,A->val,max);
+        }
+        return inserts + cntMatrixUtil(A->left,B->left,min,A->val) + cntMatrixUtil(A->right,B->right,A->val,max);
     }
  
 int Solution::cntMatrix(TreeNode* A, TreeNode* B) {

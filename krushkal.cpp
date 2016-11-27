@@ -100,3 +100,15 @@ int main() {
 
     return 0;
 }
+
+
+
+http://www.geeksforgeeks.org/find-k-closest-elements-given-value/
+http://www.geeksforgeeks.org/delete-n-nodes-after-m-nodes-of-a-linked-list/
+http://www.geeksforgeeks.org/transform-one-string-to-another-using-minimum-number-of-given-operation/
+http://www.geeksforgeeks.org/check-if-two-trees-are-mirror/
+https://github.com/checkcheckzz/coding-questions/blob/master/problem/Array/Diagonal%20elements%20sum%20of%20spiral%20matrix.cpp
+http://www.geeksforgeeks.org/find-the-number-occurring-odd-number-of-times/
+http://www.geeksforgeeks.org/longest-zig-zag-subsequence/
+https://www.pubnub.com/solutions/chat/
+https://en.wikipedia.org/wiki/Directed_acyclic_graph
