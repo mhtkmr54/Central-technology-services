@@ -12,48 +12,96 @@
 using namespace std;
 //g++ -std=c++0x
 
-map <string,int> memo;
+typedef long long LL;
 
-int solve(deque<int> mine, int i, int j){
-    //int cost = 0;
-      cout << " i " << " j " << i << " " << j << endl;
-      string res = to_string(i) + to_string(j);
-       if (memo.find(res) != memo.end()){
-          return memo[res];
-       }else{       
-                int min = 999999999;
-                int el;
-                int mindx;
-                for(int k = i+1; k < j; k++){
-                    el = mine[j] - mine[i] + solve(mine,i,k) + solve(mine,k,j);
-                    cout << " elinc  "<< el << " mine[j]" << j <<   " - mine[i]" << i << " " <<  mine[j] << " - " << mine[i] << endl;
-                    if (el < min){
-                        min = el;
-                        mindx = k;
-                        cout << "____________________________" << k << " for " << i << " " << j << endl;
-                    }
-                }
-                if(min != 999999999){
-                	return memo[res] = min;
-                }else{
-                	return 0;
-                }
-                
-       }
-       return 0;
+//ans vector
+vector<int> ans;
+
+//cuts vector
+vector<int> ar;
+
+//dp array
+vector<vector<LL> > dp;
+
+//parent array
+vector<vector<int> > parent;
+
+//solve for dp(l, r)
+LL rec(int l, int r){
+    //base case
+    if(l+1>=r)return 0;
+
+    //for memoisation
+    LL &ret=dp[l][r];
+
+    if(ret!=-1)return ret;
+
+
+    ret=LLONG_MAX;
+    int bestind;    //stores the best index
+
+    for(int i=l+1; i<r; i++){
+        //recurrence
+        LL p=rec(l,i)+rec(i,r) + (LL)ar[r]-(LL)ar[l];
+
+        //update best
+        //note that we choose lexicographically smallest index
+        //if multiple give same cost
+        if(p<ret){
+            ret=p;
+            bestind=i;
+        }
+    }
+
+    //store parent of (l, r)
+    parent[l][r]=bestind;
+
+    return ret;
 }
 
-void rodCut(int A, vector<int> &B) {
-    deque<int> mine;
-    for(int k=0; k<B.size(); k++){
-        mine.push_back(B[k]);
+//function for building solution
+void back(int l, int r){
+    //base case
+    if(l+1>=r)return;
+
+    //first choose parent of (l,r)
+    ans.push_back(ar[parent[l][r]]);
+
+    //call back recursively for two new segments
+    //calling left segment first because we want lexicographically smallest
+    back(l,parent[l][r]);
+    back(parent[l][r],r);
+}
+
+vector<int> Solution::rodCut(int A, vector<int> &B) {
+    //insert A and 0
+    B.push_back(A);
+    B.insert(B.begin(),0);
+
+
+    int n=B.size();
+    ar.clear();
+    for(int i=0; i<n; i++)
+        ar.push_back(B[i]);
+
+    //initialise dp array
+    dp.resize(n);
+    parent.resize(n);
+    ans.clear();
+    for(int i=0; i<n; i++){
+        dp[i].resize(n);
+        parent[i].resize(n);
+        for(int j=0; j<n; j++)
+            dp[i][j]=-1;
     }
-    //cout << mine.size() << endl;
-    deque<int> parts;
-    mine.push_back(A);
-    mine.push_front(0);
-    int ans = solve(mine,0,mine.size()-1);
-    cout << ans << endl;
+
+    //call recurrence
+    LL best=rec(0,n-1);
+
+    //build solution
+    back(0,n-1);
+
+    return ans;
 }
 
 int main(){
