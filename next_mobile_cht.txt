@@ -1,0 +1,55 @@
+http://stackoverflow.com/questions/27059174/is-it-good-to-implement-real-time-chat-application-in-java-using-sockets-for-mob
+
+The implementation language has little impact on the scalability of the solution when compared to the skill of the developers with the language in question, and the design of the solution.
+
+The two main scaling challenges when working on a chat program are 
+1) the C10K problem (optimising network sockets to handle a large number of clients at the same time.)
+
+and 2) scaling real time notifications in a social graph, which is O(numPeople*numPeopleSubscribedToPerson*numDevicesPerPerson*rateOfInteractions).
+
+http://stackoverflow.com/questions/1086380/how-does-facebook-gmail-send-the-real-time-notification
+
+A common method of doing such notifications is to poll a script on the server (using AJAX) on a given interval (perhaps every few seconds), to check if something has happened. However, this can be pretty network intensive, and you often make pointless requests, because nothing has happened.
+
+The way Facebook does it is using the comet approach, rather than polling on an interval, as soon as one poll completes, it issues another one. However, each request to the script on the server has an extremely long timeout, and the server only responds to the request once something has happened. 
+
+In terms of the actual technology, AJAX is the way to go here, because you can control request timeouts, and many other things. I'd recommend (Stack overflow cliche here) using jQuery to do the AJAX, it'll take a lot of the cross-compability problems away. In terms of PHP, you could simply poll an event log database table in your PHP script, and only return to the client when something happens? There are, I expect, many ways of implementing this.
+
+
+Server side – Handling the new user event and removing users when they leave the page
+
+socket.on('new user', function(name, callback){
+  if(name.length > 0){
+    if(users.indexOf(name) == -1){
+        socket.username = name;
+        users.push(socket.username);
+        updateUsers();
+        callback(true);
+    } else{
+        callback(false);
+    }
+  }
+});
+
+socket.on('disconnect',function(){
+  if(socket.username){
+    users.splice(users.indexOf(socket.username),1);
+    updateUsers();
+  }
+});
+
+function updateUsers(){
+  io.emit('users', users);
+}
+
+On the server the socket listens to new user event emitted by client. Now if the username is not empty check if it is already in the users array. If not in array push the username to the user’s socket itself and then push it into the array. There is an advantage of storing the username in user’s socket in addition to the users array. I’ll explain about it in the later discussion.
+
+I am setting up a callback to true if username is not taken already and false if it is not available. Based on this value the client side should do the appropriate validation.
+
+Server side – Handling new message event
+
+socket.on('new message', function(msg){
+  var sender = socket.username;
+  var message = msg;
+  io.emit('push message', {name: sender, msg: message});
+});
