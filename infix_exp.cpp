@@ -1,4 +1,10 @@
-#include <STACK>
+#include <iostream>
+#include <cstring>
+#include <deque>
+#include <string>
+#include <stack>
+
+using namespace std;
 
 int GetResult( char * rpn ) 
 {
@@ -62,7 +68,7 @@ int main(int argc, char* argv[])
 
     int rez = GetResult(rpn);
 
-    printf("%i", rez);
+    cout << rez;
 
     return 0;
 }

@@ -25,7 +25,27 @@ loot[i] = max(loot[i - 1], loot[i - 2] + arr[i]),  2 <= i < n
 loot[n - 1] gives the maximum amount of money the thief can take away.
 
 */
-
+// NOT ADJACENT 
+int FindMaxSum(int arr[], int n)
+{
+  int incl = arr[0];
+  int excl = 0;
+  int excl_new;
+  int i;
+ 
+  for (i = 1; i < n; i++)
+  {
+     /* current max excluding i */
+     excl_new = (incl > excl)? incl: excl;
+ 
+     /* current max including i */
+     incl = excl + arr[i];
+     excl = excl_new;
+  }
+ 
+   /* return max of incl and excl */
+   return ((incl > excl)? incl : excl);
+}
 
 int maxSubArraySum(int a[], int size)
 {
