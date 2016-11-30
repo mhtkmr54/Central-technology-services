@@ -1,4 +1,17 @@
 // Returns the count of ways we can sum  S[0...m-1] coins to get sum n
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+#include <deque>
+#include <iterator>
+
+
+using namespace std;
+
+#define MAX 999001
+
 int count( int S[], int m, int n )
 {
     // If n is 0 then there is 1 solution (do not include any coin)
@@ -21,9 +34,9 @@ int count( int S[], int m, int n )
 int main()
 {
     int i, j;
-    int arr[] = {1, 2, 3};
+    int arr[] = {100, 50, 20,10};
     int m = sizeof(arr)/sizeof(arr[0]);
-    printf("%d ", count(arr, m, 4));
+    printf("%d ", count(arr, m, 200));
     getchar();
     return 0;
 }

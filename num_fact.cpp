@@ -49,9 +49,7 @@ while (total--)
         cin >> el;
         mi[i] = el;
     }
-    for (auto el : mi){
-        cout << el << endl;
-    }
+
     for (int i = 0; i < N; i++)
     {
          Number = mi[i];

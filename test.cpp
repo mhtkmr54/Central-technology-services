@@ -15,7 +15,7 @@ typedef long long int lli;
 
 const int MOD = 1e9 + 7;
 int main(){
-	string str = "azzz";
+/*	string str = "azzz";
     int f = next_permutation(str.begin(),str.end());
     cout<< str << endl;
      
@@ -25,9 +25,10 @@ int main(){
         }
    /*     cout << 1%2 << endl; 
         cout << "df" <<factorial(5) << endl;*/
-        map <int,int> mine;
+       /* map <int,int> mine;
         cout << "dfalt "<< mine[12] << endl;
-        cout << stoi("/") << endl;
+        cout << stoi("/") << endl;*/
+        cout << ((float)1.0 * (int)4 / (long)2.00* (double)2.0) << endl;
 /*        string sample = "12345678";
         string sam = sample.substr (3,5);
         cout<< sam << endl;

@@ -56,8 +56,8 @@ int min_bottom_up(int total){
 
 
 int main(){ 
-   coins = {4,5};
-   cout << min_bottom_up(45) << endl;
+   coins = {100,50,20,10};
+   cout << min_bottom_up(200) << endl;
 
 	return 0;
 }
