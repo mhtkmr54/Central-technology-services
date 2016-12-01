@@ -82,17 +82,8 @@ int main(){
    deque<int> xx;
    deque<int> yy;
    for(int i = 0; i < mine.size()-1; i++){
-      
-
-
       int el = *max_element(mine.begin()+i+1, mine.end());
-      
-
-
-
       it = max_element(mine.begin()+i+1, mine.end());
-      
-
       cout << "currently at " << i << endl;
       int e = it - mine.begin() + 1;
       cout << it - mine.begin() <<  " pos "<<endl;
